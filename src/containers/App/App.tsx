@@ -3,15 +3,23 @@ import './App.css';
 import { DisplayImg } from '../../components/DisplayImg/DisplayImg';
 import { SelectionElements } from '../../components/SelectionElements/SelectionElements';
 
+const initialElements = {
+    
+}
+
 export const App = () => {
+
+    const [displays, setDisplays] = React.useState(false);
+
+
     return (
         <main className='App'>
             <article className='App__commands'>
                 <section>
-                    <SelectionElements name = {'Articulo'} isDisplay= {false}/>
-                    <SelectionElements name = {'Color'} isDisplay= {false}/>
-                    <SelectionElements name = {'Material'} isDisplay = {false} />
-                    <SelectionElements name = {'Diseño'} isDisplay = {false} />
+                    <SelectionElements name = {'Articulo'}   displays= {displays} setDisplays = {setDisplays}/>
+                    <SelectionElements name = {'Color'}  displays= {displays} setDisplays = {setDisplays}/>
+                    <SelectionElements name = {'Material'}  displays = {displays}  setDisplays = {setDisplays}/>
+                    <SelectionElements name = {'Diseño'}  displays = {displays} setDisplays = {setDisplays} />
                 </section>
                 <section></section>
                 <section></section>
