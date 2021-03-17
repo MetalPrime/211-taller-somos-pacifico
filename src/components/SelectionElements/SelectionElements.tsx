@@ -1,12 +1,24 @@
-import React from 'react';
+import * as React from 'react';
 import './SelectionElements.css';
+import './arrow.svg';
 
-export const SelectionElements =  () => {
+interface SelectionElements {
+    name? : string;
+    isDisplay? : boolean;
+}
+
+export const SelectionElements : React.FC<SelectionElements> =  ({name,isDisplay}) => {
 
     return (
         <div className = 'SelectionElements'>
-            <p>Lorem ipsum dolor dandole,puto el q lo lea sit amet consectetur adipisicing elit. Corporis et nulla, vel quod quas ad expedita.</p>
-            <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem dolore rem quibusda</h1>
+            <section className= 'SelectionElements__display'>
+            <h1>{name}</h1>
+            <button><img src="./arrow.svg" alt="btnArrow"/></button>
+            </section>
+
+            <section className= 'SelectionElements__options'>
+
+            </section>
         </div>
     );
 }

@@ -8,9 +8,10 @@ export const App = () => {
         <main className='App'>
             <article className='App__commands'>
                 <section>
-                    <SelectionElements></SelectionElements>
-                    <SelectionElements />
-                    <SelectionElements />
+                    <SelectionElements name = {'Articulo'} isDisplay= {false}/>
+                    <SelectionElements name = {'Color'} isDisplay= {false}/>
+                    <SelectionElements name = {'Material'} isDisplay = {false} />
+                    <SelectionElements name = {'Diseño'} isDisplay = {false} />
                 </section>
                 <section></section>
                 <section></section>

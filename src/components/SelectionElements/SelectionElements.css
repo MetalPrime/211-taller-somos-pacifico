@@ -4,3 +4,14 @@
     color: white;
     margin-bottom: 20px;
 }
+
+.SelectionElements__display{
+    border-bottom: 1px white solid;
+    display: flex;
+    justify-content: space-between;
+}
+
+.SelectionElements__options{
+    width: 50px;
+    background-color: rgba(172, 222, 249, 1);
+}
