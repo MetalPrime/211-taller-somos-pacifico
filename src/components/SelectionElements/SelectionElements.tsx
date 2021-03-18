@@ -6,12 +6,12 @@ import { Options } from '../Options/Options';
 interface SelectionElements {
     name? : string;
     displays? : boolean;
-    key? : number;
+    id? : number;
     showOptions? : () => void;
     list? : {};
 }
 
-export const SelectionElements : React.FC<SelectionElements> =  ({name,displays,key,showOptions, list}) => {
+export const SelectionElements : React.FC<SelectionElements> =  ({name,displays,id,showOptions, list}) => {
 
     
 

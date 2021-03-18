@@ -56,8 +56,8 @@ export const App = () => {
         const index = copy.findIndex((elem) => {
             return elem.id === id;
         });
+        //console.log(copy[index].display);
 
-        if(index){
             if(!copy[index].display){
                 copy[index].display = true;
                 setDisplays(copy);
@@ -65,7 +65,7 @@ export const App = () => {
                 copy[index].display = false;
                 setDisplays(copy);
             }
-        }
+        
     }
 
     return (
@@ -77,6 +77,7 @@ export const App = () => {
 
                             const showOptions = () =>{
                                 handleDisplay(id); 
+                                
                             }
 
                             return (
