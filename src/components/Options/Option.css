@@ -4,3 +4,7 @@
     border: 1px blue solid;
     background-color: white;
 }
+
+.Options img{
+    width: 100%;
+}

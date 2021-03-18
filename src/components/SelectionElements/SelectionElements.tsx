@@ -6,16 +6,14 @@ import { Options } from '../Options/Options';
 interface SelectionElements {
     name? : string;
     displays? : boolean;
+    key? : number;
     showOptions? : () => void;
-    setDisplays : (state : boolean) => void;
     list? : {};
 }
 
-export const SelectionElements : React.FC<SelectionElements> =  ({name,displays,showOptions, setDisplays,list}) => {
+export const SelectionElements : React.FC<SelectionElements> =  ({name,displays,key,showOptions, list}) => {
 
-    showOptions = () =>{
-        setDisplays(true);
-    }
+    
 
     return (
         <div className = 'SelectionElements'>

@@ -3,6 +3,28 @@ import './App.css';
 import { DisplayImg } from '../../components/DisplayImg/DisplayImg';
 import { SelectionElements } from '../../components/SelectionElements/SelectionElements';
 
+const initialSelectors = [
+    {
+        id: 5,
+        name: 'Articulo',
+        display: false,
+    },
+    {
+        id: 2,
+        name: 'Color',
+        display: false,
+    },
+    {
+        id: 3,
+        name: 'Material',
+        display: false,
+    },
+    {
+        id: 4,
+        name: 'Diseño',
+        display: false,
+    }
+];
 const initialElements = [
     {
         elemName : 'Articulo',
@@ -27,17 +49,48 @@ const initialElements = [
 
 export const App = () => {
 
-    const [displays, setDisplays] = React.useState(false);
+    const [displays, setDisplays] = React.useState(initialSelectors);
 
+    const handleDisplay = (id: number) => {
+        const copy = initialSelectors.slice();
+        const index = copy.findIndex((elem) => {
+            return elem.id === id;
+        });
+
+        if(index){
+            if(!copy[index].display){
+                copy[index].display = true;
+                setDisplays(copy);
+            } else {
+                copy[index].display = false;
+                setDisplays(copy);
+            }
+        }
+    }
 
     return (
         <main className='App'>
             <article className='App__commands'>
                 <section>
-                    <SelectionElements name = {'Articulo'}   displays= {displays} setDisplays = {setDisplays}/>
-                    <SelectionElements name = {'Color'}  displays= {displays} setDisplays = {setDisplays}/>
-                    <SelectionElements name = {'Material'}  displays = {displays}  setDisplays = {setDisplays}/>
-                    <SelectionElements name = {'Diseño'}  displays = {displays} setDisplays = {setDisplays} />
+                    {
+                        initialSelectors.map(({id,name,display}) =>{
+
+                            const showOptions = () =>{
+                                handleDisplay(id); 
+                            }
+
+                            return (
+                                <SelectionElements
+                                name = {name}
+                                displays = {display}
+                                key = {id}
+                                showOptions = {showOptions}
+                                ></SelectionElements>
+                            );
+                        }
+
+                        )
+                    }
                 </section>
                 <section></section>
                 <section></section>
