@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './SelectionElements.css';
 import ArrowLogo from './arrow.svg';
+import { Options } from '../Options/Options';
 
 interface SelectionElements {
     name? : string;
@@ -24,15 +25,10 @@ export const SelectionElements : React.FC<SelectionElements> =  ({name,displays,
             </section>
 
             {displays && <section className= 'SelectionElements__options'>
-                <div className="SelectionElements__item">
-                    
-                </div>
-                <div className="SelectionElements__item">
-                    
-                </div>
-                <div className="SelectionElements__item">
-                    
-                </div>
+                <Options></Options>
+                <Options></Options>
+                <Options></Options>
+                
                 </section>} 
         </div>
     );

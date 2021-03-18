@@ -3,9 +3,27 @@ import './App.css';
 import { DisplayImg } from '../../components/DisplayImg/DisplayImg';
 import { SelectionElements } from '../../components/SelectionElements/SelectionElements';
 
-const initialElements = {
-    
-}
+const initialElements = [
+    {
+        elemName : 'Articulo',
+        items : [
+            {
+                imgName: "camisa",
+                imgEnlace: "./../utils/camisaBlanca.png",
+            },
+            {
+                imgName: "libreta",
+                imgEnlace: "./../utils/libreta.png",
+            },
+            {
+                imgName: "thermos",
+                imgEnlace: "./../utils/thermos.png",
+            },
+
+        ]
+    },
+   
+];
 
 export const App = () => {
 
