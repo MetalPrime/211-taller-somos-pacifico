@@ -5,12 +5,16 @@ interface Options {
     name?: string;
     imgElement? : string;
     isSelect? : boolean;
+    selected? : () => void;
 }
 
-export const Options : React.FC<Options> = ({name,imgElement,isSelect}) => {
+export const Options : React.FC<Options> = ({name,imgElement,isSelect,selected}) => {
     return(
-        <div className='Options'>
+        <button 
+        onClick = {selected}
+        className={`Options ${isSelect&&'Options__isSelected'}`}  >
             <img src={imgElement} alt={`img`+name}/>
-        </div>
+            {isSelect && <img></img>}
+        </button>
     );
 }

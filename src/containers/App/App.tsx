@@ -23,11 +23,17 @@ const initialSelectors = [
         id: 4,
         name: 'Diseño',
         display: false,
+    },
+    {
+        id: 6,
+        name: 'Juanes',
+        display: false,
     }
 ];
 const initialElements = [
     {
         elemName : 'Articulo',
+        index : 1,
         items : [
             {
                 imgName: "camisa",
@@ -44,7 +50,63 @@ const initialElements = [
 
         ]
     },
-   
+    {
+        elemName : 'Color',
+        index : 2,
+        items : [
+            {
+                imgName: "camisa",
+                imgEnlace: "./../utils/camisaBlanca.png",
+            },
+            {
+                imgName: "libreta",
+                imgEnlace: "./../utils/libreta.png",
+            },
+            {
+                imgName: "thermos",
+                imgEnlace: "./../utils/thermos.png",
+            },
+
+        ]
+    },
+    {
+        elemName : 'Material',
+        index : 3,
+        items : [
+            {
+                imgName: "camisa",
+                imgEnlace: "./../utils/camisaBlanca.png",
+            },
+            {
+                imgName: "libreta",
+                imgEnlace: "./../utils/libreta.png",
+            },
+            {
+                imgName: "thermos",
+                imgEnlace: "./../utils/thermos.png",
+            },
+
+        ]
+    },
+    {
+        elemName : 'Diseño',
+        index : 4,
+        items : [
+            {
+                imgName: "camisa",
+                imgEnlace: "./../utils/camisaBlanca.png",
+            },
+            {
+                imgName: "libreta",
+                imgEnlace: "./../utils/libreta.png",
+            },
+            {
+                imgName: "thermos",
+                imgEnlace: "./../utils/thermos.png",
+            },
+
+        ]
+    }
 ];
 
 export const App = () => {
@@ -86,6 +148,7 @@ export const App = () => {
                                 displays = {display}
                                 key = {id}
                                 showOptions = {showOptions}
+                                list = {initialElements}
                                 ></SelectionElements>
                             );
                         }

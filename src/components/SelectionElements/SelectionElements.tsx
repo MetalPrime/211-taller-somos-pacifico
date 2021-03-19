@@ -8,7 +8,13 @@ interface SelectionElements {
     displays? : boolean;
     id? : number;
     showOptions? : () => void;
-    list? : {};
+    list? : Objects[];
+}
+
+interface Objects {
+        elemName : string;
+        index : number;
+        items : any;
 }
 
 export const SelectionElements : React.FC<SelectionElements> =  ({name,displays,id,showOptions, list}) => {
@@ -19,14 +25,13 @@ export const SelectionElements : React.FC<SelectionElements> =  ({name,displays,
         <div className = 'SelectionElements'>
             <section className= 'SelectionElements__display'>
             <h1>{name}</h1>
-            <button onClick={showOptions}><img src={ArrowLogo} alt="btnArrow"/></button>
+            <button onClick={showOptions}><img src={ArrowLogo} alt="btnArrow" className={displays? "SelectionElements__display--btn" :"SelectionElements__display--btnNo"}/></button>
             </section>
 
             {displays && <section className= 'SelectionElements__options'>
-                <Options></Options>
-                <Options></Options>
-                <Options></Options>
-                
+                {
+                    
+                }
                 </section>} 
         </div>
     );

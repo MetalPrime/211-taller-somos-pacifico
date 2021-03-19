@@ -8,3 +8,8 @@
 .Options img{
     width: 100%;
 }
+
+.Options__isSelected{
+    border: 1px white solid;
+    background-color: blue;
+}

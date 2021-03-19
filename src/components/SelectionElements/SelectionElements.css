@@ -12,6 +12,15 @@
     align-items: center;
 }
 
+.SelectionElements__display--btn{
+    transition: transform 0.5s;
+    transform: scale(-1, -1);
+}
+
+.SelectionElements__display--btnNo{
+    transition: transform 0.5s;
+}
+
 .SelectionElements__display button{
     width: 50px;
     height: 20px;
@@ -23,6 +32,8 @@
     height: 100%;
 }
 .SelectionElements__options{
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
     height: 100px;
     background-color: rgba(172, 222, 249, 1);
     display: flex;
