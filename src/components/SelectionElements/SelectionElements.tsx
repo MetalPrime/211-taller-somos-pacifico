@@ -4,35 +4,62 @@ import ArrowLogo from './arrow.svg';
 import { Options } from '../Options/Options';
 
 interface SelectionElements {
-    name? : string;
-    displays? : boolean;
-    id? : number;
-    showOptions? : () => void;
-    list? : Objects[];
+    name?: string;
+    displays?: boolean;
+    id?: number;
+    showOptions?: () => void;
+    list: OptionsElements[];
 }
 
-interface Objects {
-        elemName : string;
-        index : number;
-        items : any;
+interface OptionsElements {
+    elemName: string;
+    index: number;
+    items: ItemsElements[];
 }
 
-export const SelectionElements : React.FC<SelectionElements> =  ({name,displays,id,showOptions, list}) => {
+interface ItemsElements {
+    imgName: string;
+    imgEnlace: string;
+}
 
-    
+export const SelectionElements: React.FC<SelectionElements> = ({ name, displays, id, showOptions, list }) => {
+
+
 
     return (
-        <div className = 'SelectionElements'>
-            <section className= 'SelectionElements__display'>
-            <h1>{name}</h1>
-            <button onClick={showOptions}><img src={ArrowLogo} alt="btnArrow" className={displays? "SelectionElements__display--btn" :"SelectionElements__display--btnNo"}/></button>
+        <div className='SelectionElements'>
+            <section className='SelectionElements__display'>
+                <h1>{name}</h1>
+                <button onClick={showOptions}><img src={ArrowLogo} alt="btnArrow" className={displays ? "SelectionElements__display--btn" : "SelectionElements__display--btnNo"} /></button>
             </section>
 
-            {displays && <section className= 'SelectionElements__options'>
+            {displays && <section className='SelectionElements__options'>
+                <section>
                 {
-                    
+                    list.map(({ elemName, index, items }) => {
+                        //console.log(name +" " + elemName)
+
+                        if (elemName === name) {
+                            return(
+                                items.map(({ imgName, imgEnlace }) => {
+
+                                    return (
+                                        <Options
+                                        name={imgName}
+                                        imgElement={imgEnlace}
+                                        ></Options>
+                                        );
+                                }
+                            )
+
+                            );
+                        }
+                    }
+                    )
                 }
-                </section>} 
+                </section>
+                
+            </section>}
         </div>
     );
 }

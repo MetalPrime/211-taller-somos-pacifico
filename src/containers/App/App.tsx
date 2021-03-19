@@ -37,15 +37,19 @@ const initialElements = [
         items : [
             {
                 imgName: "camisa",
-                imgEnlace: "./../utils/camisaBlanca.png",
+                imgEnlace: "./../src/utils/camisaBlanca.png",
             },
             {
                 imgName: "libreta",
-                imgEnlace: "./../utils/libreta.png",
+                imgEnlace: "./../src/utils/libreta.png",
             },
             {
                 imgName: "thermos",
-                imgEnlace: "./../utils/thermos.png",
+                imgEnlace: "./../src/utils/thermos.png",
+            },
+            {
+                imgName: "thermos",
+                imgEnlace: "./../src/utils/camisaBlanca.png",
             },
 
         ]

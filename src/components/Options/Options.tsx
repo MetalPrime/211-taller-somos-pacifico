@@ -9,12 +9,13 @@ interface Options {
 }
 
 export const Options : React.FC<Options> = ({name,imgElement,isSelect,selected}) => {
+    console.log("vivo")
     return(
         <button 
         onClick = {selected}
-        className={`Options ${isSelect&&'Options__isSelected'}`}  >
+        className={isSelect?  "Options Options__isSelected" : "Options" }  >
             <img src={imgElement} alt={`img`+name}/>
-            {isSelect && <img></img>}
+            
         </button>
     );
 }
