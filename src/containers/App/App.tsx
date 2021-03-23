@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { DisplayImg } from '../../components/DisplayImg/DisplayImg';
 import { SelectionElements } from '../../components/SelectionElements/SelectionElements';
+import { } from 'react-router-dom';
 
 const initialSelectors = [
     {
