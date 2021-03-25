@@ -38,19 +38,19 @@ const initialElements = [
         items : [
             {
                 imgName: "camisa",
-                imgEnlace: "./../src/utils/camisaBlanca.png",
+                imgEnlace: "camisaBlanca.png",
             },
             {
                 imgName: "libreta",
-                imgEnlace: "./../src/utils/libreta.png",
+                imgEnlace: "libreta.png",
             },
             {
                 imgName: "thermos",
-                imgEnlace: "./../src/utils/thermos.png",
+                imgEnlace: "thermos.png",
             },
             {
                 imgName: "thermos",
-                imgEnlace: "./../src/utils/camisaBlanca.png",
+                imgEnlace: "camisaBlanca.png",
             },
 
         ]
@@ -61,15 +61,15 @@ const initialElements = [
         items : [
             {
                 imgName: "camisa",
-                imgEnlace: "./../utils/camisaBlanca.png",
+                imgEnlace: "camisaBlanca.png",
             },
             {
                 imgName: "libreta",
-                imgEnlace: "./../utils/libreta.png",
+                imgEnlace: "libreta.png",
             },
             {
                 imgName: "thermos",
-                imgEnlace: "./../utils/thermos.png",
+                imgEnlace: "thermos.png",
             },
 
         ]
@@ -80,15 +80,15 @@ const initialElements = [
         items : [
             {
                 imgName: "camisa",
-                imgEnlace: "./../utils/camisaBlanca.png",
+                imgEnlace: "camisaBlanca.png",
             },
             {
                 imgName: "libreta",
-                imgEnlace: "./../utils/libreta.png",
+                imgEnlace: "/libreta.png",
             },
             {
                 imgName: "thermos",
-                imgEnlace: "./../utils/thermos.png",
+                imgEnlace: "thermos.png",
             },
 
         ]
@@ -99,15 +99,15 @@ const initialElements = [
         items : [
             {
                 imgName: "camisa",
-                imgEnlace: "./../utils/camisaBlanca.png",
+                imgEnlace: "camisaBlanca.png",
             },
             {
                 imgName: "libreta",
-                imgEnlace: "./../utils/libreta.png",
+                imgEnlace: "libreta.png",
             },
             {
                 imgName: "thermos",
-                imgEnlace: "./../utils/thermos.png",
+                imgEnlace: "thermos.png",
             },
 
         ]
