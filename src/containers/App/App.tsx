@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { DisplayImg } from '../../components/DisplayImg/DisplayImg';
 import { SelectionElements } from '../../components/SelectionElements/SelectionElements';
-import { BrowserRouter, Route, Router } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, Router } from 'react-router-dom';
 
 const initialSelectors = [
     {
@@ -137,7 +137,7 @@ export const App = () => {
 
     return (
 
-        <BrowserRouter>
+        <HashRouter>
         <Route path="/" exact render={
             () => 
                 <main className='App'>
@@ -181,7 +181,7 @@ export const App = () => {
            <h1>Dandole al operativo</h1>   
         }/>  
 
-        </BrowserRouter>
+        </HashRouter>
         
     );
 }
