@@ -3,10 +3,16 @@
     height: 50px;
     border: 1px blue solid;
     background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .Options img{
-    width: 100%;
+
+    width: 90%;
+    height: 90%;
 }
 
 .Options__isSelected{

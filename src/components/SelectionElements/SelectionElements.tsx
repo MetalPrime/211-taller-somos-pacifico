@@ -41,7 +41,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
             </section>
 
             {displays && <section className='SelectionElements__options'>
-                <section>
+                
                 {
                     list.map(({ elemName, index, items }) => {
                         //console.log(name +" " + elemName)
@@ -64,7 +64,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                     }
                     )
                 }
-                </section>
+                
                 
             </section>}
         </div>
