@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { DisplayImg } from '../../components/DisplayImg/DisplayImg';
 import { SelectionElements } from '../../components/SelectionElements/SelectionElements';
-import { } from 'react-router-dom';
+import { BrowserRouter, Route, Router } from 'react-router-dom';
 
 const initialSelectors = [
     {
@@ -136,38 +136,52 @@ export const App = () => {
     }
 
     return (
-        <main className='App'>
-            <article className='App__commands'>
-                <section>
-                    {
-                        initialSelectors.map(({id,name,display}) =>{
 
-                            const showOptions = () =>{
-                                handleDisplay(id); 
-                                
+        <BrowserRouter>
+        <Route path="/" exact render={
+            () => 
+                <main className='App'>
+                <article className='App__commands'>
+                    <section>
+                        {
+                            initialSelectors.map(({id,name,display}) =>{
+    
+                                const showOptions = () =>{
+                                    handleDisplay(id); 
+                                    
+                                }
+    
+                                return (
+                                    <SelectionElements
+                                    name = {name}
+                                    displays = {display}
+                                    key = {id}
+                                    showOptions = {showOptions}
+                                    list = {initialElements}
+                                    ></SelectionElements>
+                                );
                             }
-
-                            return (
-                                <SelectionElements
-                                name = {name}
-                                displays = {display}
-                                key = {id}
-                                showOptions = {showOptions}
-                                list = {initialElements}
-                                ></SelectionElements>
-                            );
+    
+                            )
                         }
+                    </section>
+                    <section></section>
+                    <section></section>
+                </article>
+                <article className='App__display'>
+                <DisplayImg></DisplayImg>
+                </article>
+    
+            </main>
+            
+        }/>
 
-                        )
-                    }
-                </section>
-                <section></section>
-                <section></section>
-            </article>
-            <article className='App__display'>
-            <DisplayImg></DisplayImg>
-            </article>
+        <Route path = "/render" render={
+            () =>
+           <h1>Dandole al operativo</h1>   
+        }/>  
 
-        </main>
+        </BrowserRouter>
+        
     );
 }

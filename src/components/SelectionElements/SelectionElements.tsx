@@ -24,7 +24,14 @@ interface ItemsElements {
 
 export const SelectionElements: React.FC<SelectionElements> = ({ name, displays, id, showOptions, list }) => {
 
+    const [selected, setSelected] = React.useState(list);
 
+    const handleSelected = (id : number) => {
+        const copy = list.slice();
+        const index = copy.findIndex(elem =>{
+            return elem.index === id;
+        });
+    }
 
     return (
         <div className='SelectionElements'>

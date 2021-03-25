@@ -10,6 +10,9 @@ interface Options {
 
 export const Options : React.FC<Options> = ({name,imgElement,isSelect,selected}) => {
     console.log("vivo")
+
+    
+
     return(
         <button 
         onClick = {selected}
