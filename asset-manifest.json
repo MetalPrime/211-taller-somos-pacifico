@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/211-taller-somos-pacifico/static/css/main.ff3a24a8.chunk.css",
-    "main.js": "/211-taller-somos-pacifico/static/js/main.c78f08d7.chunk.js",
-    "main.js.map": "/211-taller-somos-pacifico/static/js/main.c78f08d7.chunk.js.map",
+    "main.js": "/211-taller-somos-pacifico/static/js/main.f233d9d5.chunk.js",
+    "main.js.map": "/211-taller-somos-pacifico/static/js/main.f233d9d5.chunk.js.map",
     "runtime-main.js": "/211-taller-somos-pacifico/static/js/runtime-main.e7931c35.js",
     "runtime-main.js.map": "/211-taller-somos-pacifico/static/js/runtime-main.e7931c35.js.map",
-    "static/js/2.43c6164c.chunk.js": "/211-taller-somos-pacifico/static/js/2.43c6164c.chunk.js",
-    "static/js/2.43c6164c.chunk.js.map": "/211-taller-somos-pacifico/static/js/2.43c6164c.chunk.js.map",
+    "static/js/2.d3260112.chunk.js": "/211-taller-somos-pacifico/static/js/2.d3260112.chunk.js",
+    "static/js/2.d3260112.chunk.js.map": "/211-taller-somos-pacifico/static/js/2.d3260112.chunk.js.map",
     "index.html": "/211-taller-somos-pacifico/index.html",
     "static/css/main.ff3a24a8.chunk.css.map": "/211-taller-somos-pacifico/static/css/main.ff3a24a8.chunk.css.map",
-    "static/js/2.43c6164c.chunk.js.LICENSE.txt": "/211-taller-somos-pacifico/static/js/2.43c6164c.chunk.js.LICENSE.txt",
+    "static/js/2.d3260112.chunk.js.LICENSE.txt": "/211-taller-somos-pacifico/static/js/2.d3260112.chunk.js.LICENSE.txt",
     "static/media/arrow.e73f5d55.svg": "/211-taller-somos-pacifico/static/media/arrow.e73f5d55.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.e7931c35.js",
-    "static/js/2.43c6164c.chunk.js",
+    "static/js/2.d3260112.chunk.js",
     "static/css/main.ff3a24a8.chunk.css",
-    "static/js/main.c78f08d7.chunk.js"
+    "static/js/main.f233d9d5.chunk.js"
   ]
 }
