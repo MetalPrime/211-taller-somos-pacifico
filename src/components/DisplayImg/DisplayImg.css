@@ -9,3 +9,13 @@
     align-items: center;
     text-align: center;
 }
+
+.DisplayImg section{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.DisplayImg section img{
+    width: 15%;
+}
