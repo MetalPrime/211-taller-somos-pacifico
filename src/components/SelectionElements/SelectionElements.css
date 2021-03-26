@@ -36,6 +36,7 @@
     transform-style: preserve-3d;
     height: 100px;
     background-color: rgba(172, 222, 249, 1);
+    padding-left: 5%;
     display: flex;
     flex-direction: row;
     align-items: center;
