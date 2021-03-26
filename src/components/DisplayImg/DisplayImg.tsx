@@ -1,9 +1,24 @@
-import React from 'react';
+import * as React from 'react';
 import './DisplayImg.css';
+
+import OptionNote from './optionNote.svg';
+import OptionShirt from './optionShirt.svg';
+import OptionThermo from './optionThermo.svg';
+
+
+interface DisplayImg{
+
+}
 
 export const DisplayImg = () => {
     return(
         <div className='DisplayImg'>
+            <h1>Busca y Personaliza tu objeto deseado en el panel de la izquierda</h1>
+            <section>
+                <img src={OptionNote} alt="OptionNote"/>
+                <img src={OptionShirt} alt="OptionShirt"/>
+                <img src={OptionThermo} alt="OptionThermo"/>
+            </section>
             <img src="" alt=""/>
         </div>
     );
