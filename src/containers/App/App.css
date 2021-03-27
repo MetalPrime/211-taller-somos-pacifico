@@ -1,6 +1,9 @@
+@import './../../fonts/style.css';
+
 .App{
     width: 100%;
     display: flex;
+    font-family: 'Gordita Regular';    
 }
 
 .App__commands{

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import './DisplayImg.css';
-
 import OptionNote from './optionNote.svg';
 import OptionShirt from './optionShirt.svg';
 import OptionThermo from './optionThermo.svg';

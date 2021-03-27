@@ -1,3 +1,5 @@
+@import './../../fonts/style.css';
+
 .DisplayImg{
     background: rgba(46, 43, 103, 0.3);
     border-radius: 0 35px 35px 0;
@@ -8,6 +10,12 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    font-size: 30px;
+    font-family: 'Gordita Thin';    
+}
+
+.DisplayImg h1{
+    padding: 0 25%;
 }
 
 .DisplayImg section{
@@ -19,3 +27,4 @@
 .DisplayImg section img{
     width: 15%;
 }
+
