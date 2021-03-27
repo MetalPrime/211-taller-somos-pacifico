@@ -2,7 +2,7 @@ import * as React from 'react';
 import './Price.css';
 
 interface Price {
-    currentPrice: number,
+    currentPrice?: number,
 }
 
 export const Price: React.FC<Price> = ({ currentPrice }) => {
