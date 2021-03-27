@@ -3,6 +3,8 @@ import './App.css';
 import { DisplayImg } from '../../components/DisplayImg/DisplayImg';
 import { SelectionElements } from '../../components/SelectionElements/SelectionElements';
 import { BrowserRouter, HashRouter, Route, Router } from 'react-router-dom';
+import { Amount } from '../../components/Amount/Amount';
+import { Price } from '../../components/Price/Price';
 
 const initialSelectors = [
     {
@@ -165,7 +167,10 @@ export const App = () => {
                             )
                         }
                     </section>
-                    <section></section>
+                    <section>
+                        <Amount></Amount>
+                        <Price></Price>
+                    </section>
                     <section></section>
                 </article>
                 <article className='App__display'>
