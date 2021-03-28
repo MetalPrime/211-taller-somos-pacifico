@@ -1,0 +1,13 @@
+.Amount{
+    width: 30%;
+    position: relative;
+    font-family: 'Gordita Regular';
+}
+
+.Amount select{
+    width: 100%;
+    background-color: #2E2B67;
+    border: 1px solid white;
+    color: white;
+    height: 30px;
+}

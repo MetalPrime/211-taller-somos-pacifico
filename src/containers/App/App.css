@@ -1,9 +1,10 @@
 @import './../../fonts/style.css';
 
 .App{
+    color: white;
     width: 100%;
     display: flex;
-    font-family: 'Gordita Regular';    
+    font-family: 'Gordita Thin';    
 }
 
 .App__commands{
@@ -13,7 +14,38 @@
 
 }
 
+.App__update{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
 .App__display{
     width: 70%;
     height: auto;
+}
+
+.App__btns{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.btn{
+    height: 35px;
+    width: 30%;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    margin-bottom: 8%;
+}
+
+.btn__recommend{
+    background-color: #9C92DB;
+}
+
+.btn__buy{
+    background-color: #FFCE53;
 }

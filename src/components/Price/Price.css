@@ -1,0 +1,9 @@
+.Precio{
+    display: block;
+    width: 30%;
+}
+
+.Precio p{
+    font-family: 'Gordita Bold';
+    font-size: 20px;
+}
