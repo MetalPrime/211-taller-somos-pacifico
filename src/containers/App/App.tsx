@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { DisplayImg } from '../../components/DisplayImg/DisplayImg';
 import { SelectionElements } from '../../components/SelectionElements/SelectionElements';
-import { BrowserRouter, HashRouter, Route, Router } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Redirect, Route, Router, useHistory, Link } from 'react-router-dom';
 import { Amount } from '../../components/Amount/Amount';
 import { Price } from '../../components/Price/Price';
 
@@ -35,9 +35,9 @@ const initialSelectors = [
 ];
 const initialElements = [
     {
-        elemName : 'Articulo',
-        index : 1,
-        items : [
+        elemName: 'Articulo',
+        index: 1,
+        items: [
             {
                 imgName: "camisa",
                 imgEnlace: "camisaBlanca.png",
@@ -58,9 +58,9 @@ const initialElements = [
         ]
     },
     {
-        elemName : 'Color',
-        index : 2,
-        items : [
+        elemName: 'Color',
+        index: 2,
+        items: [
             {
                 imgName: "camisa",
                 imgEnlace: "camisaBlanca.png",
@@ -77,9 +77,9 @@ const initialElements = [
         ]
     },
     {
-        elemName : 'Material',
-        index : 3,
-        items : [
+        elemName: 'Material',
+        index: 3,
+        items: [
             {
                 imgName: "camisa",
                 imgEnlace: "camisaBlanca.png",
@@ -96,9 +96,9 @@ const initialElements = [
         ]
     },
     {
-        elemName : 'Diseño',
-        index : 4,
-        items : [
+        elemName: 'Diseño',
+        index: 4,
+        items: [
             {
                 imgName: "camisa",
                 imgEnlace: "camisaBlanca.png",
@@ -120,6 +120,8 @@ export const App = () => {
 
     const [displays, setDisplays] = React.useState(initialSelectors);
 
+    const history = useHistory();
+
     const handleDisplay = (id: number) => {
         const copy = initialSelectors.slice();
         const index = copy.findIndex((elem) => {
@@ -127,66 +129,86 @@ export const App = () => {
         });
         //console.log(copy[index].display);
 
-            if(!copy[index].display){
-                copy[index].display = true;
-                setDisplays(copy);
-            } else {
-                copy[index].display = false;
-                setDisplays(copy);
-            }
-        
+        if (!copy[index].display) {
+            copy[index].display = true;
+            setDisplays(copy);
+        } else {
+            copy[index].display = false;
+            setDisplays(copy);
+        }
+
+    }
+
+
+    const handleBuy = () => {
+        history.push('/comprar');
+    }
+
+    const handleRecommend = () => {
+        history.push('/recomendar');
     }
 
     return (
+        <main >
+            <HashRouter basename={process.env.PUBLIC_URL}>
 
-        <HashRouter basename={process.env.PUBLIC_URL}>
-        <Route path="/" exact render={
-            () => 
-                <main className='App'>
-                <article className='App__commands'>
-                    <section>
-                        {
-                            initialSelectors.map(({id,name,display}) =>{
-    
-                                const showOptions = () =>{
-                                    handleDisplay(id); 
-                                    
-                                }
-    
-                                return (
-                                    <SelectionElements
-                                    name = {name}
-                                    displays = {display}
-                                    key = {id}
-                                    showOptions = {showOptions}
-                                    list = {initialElements}
-                                    ></SelectionElements>
-                                );
-                            }
-    
-                            )
-                        }
-                    </section>
-                    <section>
-                        <Amount></Amount>
-                        <Price></Price>
-                    </section>
-                    <section></section>
-                </article>
-                <article className='App__display'>
-                <DisplayImg></DisplayImg>
-                </article>
-    
-            </main>
-            
-        }/>
 
-        <Route path = "/render" render={
-            () =>
-           <h1>Dandole al operativo</h1>   
-        }/>  
+                <Route path="/" exact render={
+                    () =>
+                        <section className='App'>
+                            <article className='App__commands'>
+                                <section >
+                                    {
+                                        initialSelectors.map(({ id, name, display }) => {
 
-        </HashRouter>
-        
+                                            const showOptions = () => {
+                                                handleDisplay(id);
+
+                                            }
+
+                                            return (
+                                                <SelectionElements
+                                                    name={name}
+                                                    displays={display}
+                                                    key={id}
+                                                    showOptions={showOptions}
+                                                    list={initialElements}
+                                                ></SelectionElements>
+                                            );
+                                        }
+
+                                        )
+                                    }
+                                </section>
+                                <section className='App__update'>
+                                    <Amount></Amount>
+                                    <Price></Price>
+                                </section>
+                                <section className='App__btns'>
+
+                                    <button className="btn btn__recommend" onClick={handleRecommend}>Recomendar</button>
+                                    <button className="btn btn__buy" onClick={handleBuy}>Comprar</button>
+                                </section>
+                            </article>
+                            <article className='App__display'>
+                                <DisplayImg></DisplayImg>
+                            </article>
+                        </section>
+
+
+                } />
+
+                <Route path="/recomendar" render={
+                    () =>
+                        <h1>Recomendar</h1>
+                } />
+
+                <Route path="/comprar" render={
+                    () =>
+                        <h1>Comprar</h1>
+                } />
+
+            </HashRouter>
+        </main>
     );
 }
