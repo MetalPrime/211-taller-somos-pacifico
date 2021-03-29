@@ -11,7 +11,18 @@
     align-items: center;
     text-align: center;
     font-size: 30px;
-    font-family: 'Gordita Thin';    
+    font-family: 'Gordita Thin';
+    color: rgba(46, 43, 103, 1); 
+}
+
+.DisplayImg__section{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .DisplayImg h1{

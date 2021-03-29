@@ -5,20 +5,26 @@ import OptionShirt from './optionShirt.svg';
 import OptionThermo from './optionThermo.svg';
 
 
-interface DisplayImg{
-
+interface DisplayImg {
+    isNone?: boolean;
 }
 
-export const DisplayImg = () => {
-    return(
+export const DisplayImg: React.FC<DisplayImg> = ({ isNone }) => {
+    return (
         <div className='DisplayImg'>
-            <h1>Busca y Personaliza tu objeto deseado en el panel de la izquierda</h1>
-            <section>
-                <img src={OptionNote} alt="OptionNote"/>
-                <img src={OptionShirt} alt="OptionShirt"/>
-                <img src={OptionThermo} alt="OptionThermo"/>
-            </section>
-            <img src="" alt=""/>
+            {
+                !isNone &&
+                <section className='DisplayImg__section'>
+                    <h1>Busca y Personaliza tu objeto deseado en el panel de la izquierda</h1>
+                    <section>
+                        <img src={OptionNote} alt="OptionNote" />
+                        <img src={OptionShirt} alt="OptionShirt" />
+                        <img src={OptionThermo} alt="OptionThermo" />
+                    </section>
+                </section>
+
+            }
+
         </div>
     );
 }
