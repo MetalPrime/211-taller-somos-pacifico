@@ -9,6 +9,7 @@ interface SelectionElements {
     id?: number;
     showOptions?: () => void;
     list: OptionsElements[];
+    setItemSelected: React.Dispatch<React.SetStateAction<string>>;
 }
 
 interface OptionsElements {
@@ -20,17 +21,33 @@ interface OptionsElements {
 interface ItemsElements {
     imgName: string;
     imgEnlace: string;
+    display : boolean;
+    indexItem: number;
 }
 
-export const SelectionElements: React.FC<SelectionElements> = ({ name, displays, id, showOptions, list }) => {
+export const SelectionElements: React.FC<SelectionElements> = ({ name, displays, id, showOptions, list, setItemSelected }) => {
 
     const [selected, setSelected] = React.useState(list);
 
-    const handleSelected = (id : number) => {
+    const handleSelected = (id : number, idtems : number) => {
         const copy = list.slice();
         const index = copy.findIndex(elem =>{
             return elem.index === id;
         });
+
+        const itemscopy = copy[index].items;
+        const indexItem = itemscopy.findIndex(elem =>{
+            return elem.indexItem === idtems;
+        });
+
+        if (!itemscopy[indexItem].display) {
+            itemscopy[indexItem].display = true;
+            setSelected(copy);
+            setItemSelected(itemscopy[indexItem].imgName);
+        } else {
+            itemscopy[indexItem].display = false;
+            setSelected(copy);
+        }
     }
 
     return (
@@ -48,12 +65,19 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
 
                         if (elemName === name) {
                             return(
-                                items.map(({ imgName, imgEnlace }) => {
+                                items.map(({ imgName, imgEnlace, display, indexItem }) => {
+
+                                    const showPossibilities = () => {
+                                        handleSelected(index,indexItem);
+
+                                    }
 
                                     return (
                                         <Options
                                         name={imgName}
                                         imgElement={imgEnlace}
+                                        isSelect = {display}
+                                        selected = {showPossibilities}
                                         ></Options>
                                         );
                                 }

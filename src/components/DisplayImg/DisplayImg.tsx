@@ -7,9 +7,15 @@ import OptionThermo from './optionThermo.svg';
 
 interface DisplayImg {
     isNone?: boolean;
+    mainItem : string;
 }
 
-export const DisplayImg: React.FC<DisplayImg> = ({ isNone }) => {
+export const DisplayImg: React.FC<DisplayImg> = ({ isNone, mainItem }) => {
+
+    if(mainItem != ""){
+        isNone = true;
+    }
+
     return (
         <div className='DisplayImg'>
             {
@@ -23,6 +29,11 @@ export const DisplayImg: React.FC<DisplayImg> = ({ isNone }) => {
                     </section>
                 </section>
 
+            }
+
+            {
+                isNone && 
+                <h1>{mainItem}</h1>
             }
 
         </div>
