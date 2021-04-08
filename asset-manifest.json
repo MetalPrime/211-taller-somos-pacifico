@@ -1,21 +1,25 @@
 {
   "files": {
-    "main.css": "/211-taller-somos-pacifico/static/css/main.ff3a24a8.chunk.css",
-    "main.js": "/211-taller-somos-pacifico/static/js/main.54eec06d.chunk.js",
-    "main.js.map": "/211-taller-somos-pacifico/static/js/main.54eec06d.chunk.js.map",
+    "main.css": "/211-taller-somos-pacifico/static/css/main.09a92c5b.chunk.css",
+    "main.js": "/211-taller-somos-pacifico/static/js/main.8ce95c70.chunk.js",
+    "main.js.map": "/211-taller-somos-pacifico/static/js/main.8ce95c70.chunk.js.map",
     "runtime-main.js": "/211-taller-somos-pacifico/static/js/runtime-main.e7931c35.js",
     "runtime-main.js.map": "/211-taller-somos-pacifico/static/js/runtime-main.e7931c35.js.map",
-    "static/js/2.d3260112.chunk.js": "/211-taller-somos-pacifico/static/js/2.d3260112.chunk.js",
-    "static/js/2.d3260112.chunk.js.map": "/211-taller-somos-pacifico/static/js/2.d3260112.chunk.js.map",
+    "static/js/2.ccaf3bc0.chunk.js": "/211-taller-somos-pacifico/static/js/2.ccaf3bc0.chunk.js",
+    "static/js/2.ccaf3bc0.chunk.js.map": "/211-taller-somos-pacifico/static/js/2.ccaf3bc0.chunk.js.map",
     "index.html": "/211-taller-somos-pacifico/index.html",
-    "static/css/main.ff3a24a8.chunk.css.map": "/211-taller-somos-pacifico/static/css/main.ff3a24a8.chunk.css.map",
-    "static/js/2.d3260112.chunk.js.LICENSE.txt": "/211-taller-somos-pacifico/static/js/2.d3260112.chunk.js.LICENSE.txt",
-    "static/media/arrow.e73f5d55.svg": "/211-taller-somos-pacifico/static/media/arrow.e73f5d55.svg"
+    "static/css/main.09a92c5b.chunk.css.map": "/211-taller-somos-pacifico/static/css/main.09a92c5b.chunk.css.map",
+    "static/js/2.ccaf3bc0.chunk.js.LICENSE.txt": "/211-taller-somos-pacifico/static/js/2.ccaf3bc0.chunk.js.LICENSE.txt",
+    "static/media/DisplayImg.css": "/211-taller-somos-pacifico/static/media/Gordita Ultra.239b9a7a.woff",
+    "static/media/arrow.e73f5d55.svg": "/211-taller-somos-pacifico/static/media/arrow.e73f5d55.svg",
+    "static/media/optionNote.5f1a78d8.svg": "/211-taller-somos-pacifico/static/media/optionNote.5f1a78d8.svg",
+    "static/media/optionShirt.559f6d5e.svg": "/211-taller-somos-pacifico/static/media/optionShirt.559f6d5e.svg",
+    "static/media/optionThermo.a987c5f7.svg": "/211-taller-somos-pacifico/static/media/optionThermo.a987c5f7.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.e7931c35.js",
-    "static/js/2.d3260112.chunk.js",
-    "static/css/main.ff3a24a8.chunk.css",
-    "static/js/main.54eec06d.chunk.js"
+    "static/js/2.ccaf3bc0.chunk.js",
+    "static/css/main.09a92c5b.chunk.css",
+    "static/js/main.8ce95c70.chunk.js"
   ]
 }
