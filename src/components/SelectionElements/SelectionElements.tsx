@@ -9,46 +9,64 @@ interface SelectionElements {
     id?: number;
     showOptions?: () => void;
     list: OptionsElements[];
-    setItemSelected: React.Dispatch<React.SetStateAction<string>>;
+    config: Configuration;
+    setConfig: React.Dispatch<React.SetStateAction<Configuration>>
 }
 
 interface OptionsElements {
-    elemName: string;
-    index: number;
-    items: ItemsElements[];
+    name: string;
+    img: string;
+    price: number;
+    colors: ItemsElements[];
+    materials: ItemsElements[];
+    design: ItemsElements[];
 }
 
 interface ItemsElements {
-    imgName: string;
-    imgEnlace: string;
-    display : boolean;
-    indexItem: number;
+    name: string;
+    img: string;
 }
 
-export const SelectionElements: React.FC<SelectionElements> = ({ name, displays, id, showOptions, list, setItemSelected }) => {
+interface Configuration {
+    type: string | null;
+    color: string | null;
+    material: string | null;
+    design: string | null;
+}
 
-    const [selected, setSelected] = React.useState(list);
+export const SelectionElements: React.FC<SelectionElements> = ({ name, displays, id, showOptions, list, config, setConfig }) => {
 
-    const handleSelected = (id : number, idtems : number) => {
-        const copy = list.slice();
-        const index = copy.findIndex(elem =>{
-            return elem.index === id;
-        });
+    // const [selected, setSelected] = React.useState(list);
 
-        const itemscopy = copy[index].items;
-        const indexItem = itemscopy.findIndex(elem =>{
-            return elem.indexItem === idtems;
-        });
+    // const handleSelected = (id : number, idtems : number) => {
+    //     const copy = list.slice();
+    //     const index = copy.findIndex(elem =>{
+    //         return elem.index === id;
+    //     });
 
-        if (!itemscopy[indexItem].display) {
-            itemscopy[indexItem].display = true;
-            setSelected(copy);
-            setItemSelected(itemscopy[indexItem].imgName);
-        } else {
-            itemscopy[indexItem].display = false;
-            setSelected(copy);
-        }
-    }
+    //     const itemscopy = copy[index].items;
+    //     const indexItem = itemscopy.findIndex(elem =>{
+    //         return elem.indexItem === idtems;
+    //     });
+
+    //     if (!itemscopy[indexItem].display) {
+    //         copy.forEach(elem => {
+    //             elem.items.forEach(inner => {
+    //                 inner.display = false;
+    //             });
+    //         });
+    //         itemscopy[indexItem].display = true;
+    //         setSelected(copy);
+    //         setItemSelected(itemscopy[indexItem]);
+
+    //     } else {
+    //         itemscopy[indexItem].display = false;
+    //         setSelected(copy);
+    //     }
+    // }
+    const selectedArticleType = list.find(article => {
+        return article.name === config.type
+    });
 
     return (
         <div className='SelectionElements'>
@@ -58,38 +76,124 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
             </section>
 
             {displays && <section className='SelectionElements__options'>
-                
+
                 {
-                    list.map(({ elemName, index, items }) => {
-                        //console.log(name +" " + elemName)
 
-                        if (elemName === name) {
-                            return(
-                                items.map(({ imgName, imgEnlace, display, indexItem }) => {
-
-                                    const showPossibilities = () => {
-                                        handleSelected(index,indexItem);
-
-                                    }
-
-                                    return (
-                                        <Options
-                                        name={imgName}
-                                        imgElement={imgEnlace}
-                                        isSelect = {display}
-                                        selected = {showPossibilities}
-                                        ></Options>
-                                        );
+                    list.map(articleType => {
+                        const handleClick = () => {
+                            setConfig(function (previousValue) {
+                                return {
+                                    ...previousValue,
+                                    type: articleType.name
                                 }
-                            )
-
-                            );
+                            });
                         }
-                    }
-                    )
+
+                        if(name === 'Articulo'){
+                            return <Options
+
+                            key={articleType.name}
+                            name={articleType.name}
+                            imgElement={articleType.img}
+                            selected={handleClick}
+                        //style={{ backgroundColor: config.type === articleType.name ? 'lightblue' : 'white' }}
+                        //onClick={handleClick}>
+                        //{articleType.name} {articleType.price}
+                        >
+                        </Options>
+                        }
+
+                        
+                    })
                 }
-                
-                
+                {
+                    selectedArticleType?.colors.map(color => {
+                        const handleClick = () => {
+                            setConfig(function (previousValue) {
+                                return {
+                                    ...previousValue,
+                                    color: color.name
+                                }
+                            });
+                        }
+
+                        if (name === 'Color') {
+                            return <Options
+                                key={color.name}
+                                imgElement={color.img}
+                                selected={handleClick}
+                            //style={{ backgroundColor: config.color === color.name ? 'lightblue' : 'white' }}
+                            //onClick={handleClick}
+                            >
+                                //{color.name}
+                            </Options>
+                        }
+
+
+                    })
+                }
+                {
+                    selectedArticleType?.materials.map(material => {
+                        const handleClick = () => {
+                            setConfig(function (previousValue) {
+                                return {
+                                    ...previousValue,
+                                    material: material.name
+                                }
+                            });
+                        }
+
+                        if (name === 'Material') {
+                            return <Options
+                                key={material.name}
+                                imgElement={material.img}
+                                selected={handleClick}
+                            //style={{ backgroundmaterial: config.material === material.name ? 'lightblue' : 'white' }}
+                            //onClick={handleClick}
+                            >
+                                //{material.name}
+                            </Options>
+                        }
+
+                    })
+                }
+                {
+                    selectedArticleType?.design.map(design => {
+                        const handleClick = () => {
+                            setConfig(function (previousValue) {
+                                return {
+                                    ...previousValue,
+                                    design: design.name
+                                }
+                            });
+                        }
+
+                        if (name === 'Diseño') {
+                            return <Options
+                                key={design.name}
+                                imgElement={design.img}
+                                selected={handleClick}
+                            //style={{ backgrounddesign: config.design === design.name ? 'lightblue' : 'white' }}
+                            //onClick={handleClick}
+                            >
+                                //{design.name}
+                            </Options>
+                        }
+
+                    })
+                   
+                }
+
+
+
+
+
+
+
+
+
+
+
             </section>}
         </div>
     );

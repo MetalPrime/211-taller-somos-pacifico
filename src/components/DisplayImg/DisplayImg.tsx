@@ -7,13 +7,28 @@ import OptionThermo from './optionThermo.svg';
 
 interface DisplayImg {
     isNone?: boolean;
-    mainItem : string;
+    mainItemType : null | string;
+    mainItemColor : null |string;
+    mainItemMaterial : null |string;
+    mainItemDesign : null |string;
+
 }
 
-export const DisplayImg: React.FC<DisplayImg> = ({ isNone, mainItem }) => {
 
-    if(mainItem != ""){
+export const DisplayImg: React.FC<DisplayImg> = ({ isNone, mainItemColor, mainItemDesign, mainItemMaterial, mainItemType }) => {
+
+
+    console.log(mainItemColor);
+    console.log(mainItemDesign);
+    console.log(mainItemMaterial);
+    console.log(mainItemType);
+    
+    if(mainItemColor === null && mainItemDesign === null && mainItemMaterial === null && mainItemType === null){
+        isNone = false;
+        console.log("true");
+    } else {
         isNone = true;
+        console.log("False");
     }
 
     return (
@@ -33,7 +48,12 @@ export const DisplayImg: React.FC<DisplayImg> = ({ isNone, mainItem }) => {
 
             {
                 isNone && 
-                <h1>{mainItem}</h1>
+                <section>
+                <h1>{mainItemColor}</h1>
+                <h1>{mainItemDesign}</h1>
+                <h1>{mainItemMaterial}</h1>
+                <h1>{mainItemType}</h1>
+                </section>
             }
 
         </div>

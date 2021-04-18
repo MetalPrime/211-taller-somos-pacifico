@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { DisplayImg } from '../../components/DisplayImg/DisplayImg';
 import { SelectionElements } from '../../components/SelectionElements/SelectionElements';
-import { BrowserRouter, HashRouter, Redirect, Route, Router, useHistory, Link } from 'react-router-dom';
+import {  HashRouter,  Route,  useHistory } from 'react-router-dom';
 import { Amount } from '../../components/Amount/Amount';
 import { Price } from '../../components/Price/Price';
 
@@ -27,130 +27,11 @@ const initialSelectors = [
         name: 'Diseño',
         display: false,
     },
-    {
-        id: 6,
-        name: 'Juanes',
-        display: false,
-    }
-];
-const initialElements = [
-    {
-        elemName: 'Articulo',
-        index: 1,
-        items: [
-            {
-                imgName: "camisa",
-                imgEnlace: "camisaBlanca.png",
-                display: false,
-                indexItem : 1,
-            },
-            {
-                imgName: "libreta",
-                imgEnlace: "libreta.png",
-
-                display: false,
-                indexItem : 2,
-            },
-            {
-                imgName: "thermos",
-                imgEnlace: "thermos.png",
-
-                display: false,
-                indexItem : 3,
-            },
-            {
-                imgName: "thermos",
-                imgEnlace: "camisaBlanca.png",
-                display: false,
-                indexItem : 4,
-            },
-
-        ]
-    },
-    {
-        elemName: 'Color',
-        index: 2,
-        items: [
-            {
-                imgName: "camisa",
-                imgEnlace: "camisaBlanca.png",
-                display: false,
-                indexItem : 1,
-            },
-            {
-                imgName: "libreta",
-                imgEnlace: "libreta.png",
-
-                display: false,
-                indexItem : 2,
-            },
-            {
-                imgName: "thermos",
-                imgEnlace: "thermos.png",
-
-                display: false,
-                indexItem : 3,
-            },
-
-        ]
-    },
-    {
-        elemName: 'Material',
-        index: 3,
-        items: [
-            {
-                imgName: "camisa",
-                imgEnlace: "camisaBlanca.png",
-                display: false,
-                indexItem : 1,
-            },
-            {
-                imgName: "libreta",
-                imgEnlace: "/libreta.png",
-
-                display: false,
-                indexItem : 2,
-            },
-            {
-                imgName: "thermos",
-                imgEnlace: "thermos.png",
-
-                display: false,
-                indexItem : 3,
-            },
-
-        ]
-    },
-    {
-        elemName: 'Diseño',
-        index: 4,
-        items: [
-            {
-                imgName: "camisa",
-                imgEnlace: "camisaBlanca.png",
-                display: false,
-                indexItem : 1,
-            },
-            {
-                imgName: "libreta",
-                imgEnlace: "libreta.png",
-
-                display: false,
-                indexItem : 2,
-            },
-            {
-                imgName: "thermos",
-                imgEnlace: "thermos.png",
-
-                display: false,
-                indexItem : 3,
-            },
-
-        ]
-    }
+    
 ];
 
-const currentPrice = 10.000;
+
+const currentPrice = 0;
 
 const options = [
     {
@@ -183,17 +64,136 @@ const options = [
     },
 ];
 
+const articleTypes = [
+    {
+      name: 'thermos',
+      img: 'thermos.png',
+      price: 15,
+      colors: [
+        {
+          name: 'red',
+          img: 'aosdas.jpg'
+        },
+        {
+          name: 'blue',
+          img: 'aosdas.jpg'
+        }
+      ],
+      materials: [
+        {
+          name: 'aluminum',
+          img: 'asdq12.jpg'
+        },
+        {
+          name: 'plastic',
+          img: 'sdfd.dfd',
+
+        }
+      ],
+      design: [
+          {
+            name: 'design',
+            img: 'sdfd.jfp',
+          },
+          {
+            name: 'design',
+            img: 'sdfd.jfp',
+          }
+      ]
+    },
+    {
+      name: 'notebook',
+      img: 'libreta.png',
+      price: 20,
+      colors: [
+        {
+          name: 'black',
+          img: 'aosdas.jpg'
+        },
+        {
+          name: 'white',
+          img: 'aosdas.jpg'
+        }
+      ],
+      materials: [
+        {
+          name: 'plastic',
+          img: 'sdfd.dfd',
+        },
+        {
+          name: 'leather',
+          img: 'sdfd.dfd',
+
+        },
+        {
+          name: 'paper',
+          img: 'sdfd.dfd',
+
+        }
+      ],
+      design: [
+          {
+            name: 'design',
+            img: 'sdfd.jfp',
+          },
+          {
+            name: 'design',
+            img: 'sdfd.jfp',
+          }
+      ]
+    },
+    {
+      name: 't-shirt',
+      img: 'camisaBlanca.png',
+      price: 25,
+      colors: [
+        {
+          name: 'yellow',
+          img: 'aosdas.jpg'
+        },
+      ],
+      materials: [
+        {
+          name: 'cotton',
+          img: 'sdfd.dfd',
+
+        },
+        {
+          name: 'poliester',
+          img: 'sdfd.dfd',
+
+        }
+      ],
+      design: [
+          {
+            name: 'design',
+            img: 'sdfd.jfp',
+          },
+          {
+            name: 'design',
+            img: 'sdfd.jfp',
+          }
+      ]
+    },
+  ];
+
 export const App = () => {
+
+    const [ config, setConfig ] = React.useState({
+        type: null as null|string,
+        color: null as null|string,
+        material: null as null|string,
+        design: null as null|string,
+      });
 
     const [displays, setDisplays] = React.useState(initialSelectors);
 
-    const [itemSelected, setItemSelected] = React.useState("");
+    const [itemSelected, setItemSelected] = React.useState("ffd");
 
     const [price, setPrice] = React.useState(currentPrice);
 
     const [amount, setAmount] = React.useState(0);
 
-    console.log(itemSelected);
     const history = useHistory();
 
     const handleDisplay = (id: number) => {
@@ -213,6 +213,10 @@ export const App = () => {
 
     }
 
+    React.useEffect(()=>{
+        //setPrice(amount * itemSelected.price);
+    },[amount, itemSelected]);
+
 
     const handleBuy = () => {
         history.push('/comprar');
@@ -231,6 +235,7 @@ export const App = () => {
                     () =>
                         <section className='App'>
                             <article className='App__commands'>
+                                <p> config: {JSON.stringify(config)}</p>
                                 <section >
                                     {
                                         initialSelectors.map(({ id, name, display }) => {
@@ -246,8 +251,10 @@ export const App = () => {
                                                     displays={display}
                                                     key={id}
                                                     showOptions={showOptions}
-                                                    list={initialElements}
-                                                    setItemSelected={setItemSelected}
+                                                    list={articleTypes}
+                                                    config={config}
+                                                    setConfig={setConfig}
+                                                    
                                                 ></SelectionElements>
                                             );
                                         }
@@ -259,8 +266,7 @@ export const App = () => {
                                     <Amount
                                         list={options}
                                         setAmount={setAmount}
-                                        setPrice={setPrice}
-                                        price={price}
+
                                     ></Amount>
                                     <Price
                                         currentPrice={price}
@@ -274,7 +280,11 @@ export const App = () => {
                             </article>
                             <article className='App__display'>
                                 <DisplayImg
-                                mainItem =  {itemSelected}
+                                isNone = {false}
+                                mainItemColor =  {config.color}
+                                mainItemDesign = {config.design}
+                                mainItemMaterial = {config.material}
+                                mainItemType = {config.type}
                                 ></DisplayImg>
                             </article>
                         </section>
