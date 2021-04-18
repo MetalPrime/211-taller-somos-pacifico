@@ -10,7 +10,10 @@ interface SelectionElements {
     showOptions?: () => void;
     list: OptionsElements[];
     config: Configuration;
-    setConfig: React.Dispatch<React.SetStateAction<Configuration>>
+    setConfig: React.Dispatch<React.SetStateAction<Configuration>>;
+    price: Price;
+    setPrice : React.Dispatch<React.SetStateAction<Price>>;
+
 }
 
 interface OptionsElements {
@@ -25,6 +28,7 @@ interface OptionsElements {
 interface ItemsElements {
     name: string;
     img: string;
+    price: number;
 }
 
 interface Configuration {
@@ -34,7 +38,14 @@ interface Configuration {
     design: string | null;
 }
 
-export const SelectionElements: React.FC<SelectionElements> = ({ name, displays, id, showOptions, list, config, setConfig }) => {
+interface Price {
+    typePrice: number | null;
+    colorPrice: number | null;
+    materialPrice: number | null;
+    designPrice: number | null;
+}
+
+export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,  showOptions, list, config, setConfig, price, setPrice }) => {
 
     // const [selected, setSelected] = React.useState(list);
 
@@ -87,6 +98,15 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                     type: articleType.name
                                 }
                             });
+
+                            setPrice(function (previousValue) {
+                                return{
+                                    ...previousValue,
+                                    typePrice: articleType.price
+                                }
+                            });
+
+                            
                         }
 
                         if(name === 'Articulo'){
@@ -115,6 +135,13 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                     color: color.name
                                 }
                             });
+
+                            setPrice(function (previousValue) {
+                                return{
+                                    ...previousValue,
+                                    colorPrice: color.price
+                                }
+                            });
                         }
 
                         if (name === 'Color') {
@@ -139,6 +166,13 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                 return {
                                     ...previousValue,
                                     material: material.name
+                                }
+                            });
+
+                            setPrice(function (previousValue) {
+                                return{
+                                    ...previousValue,
+                                    materialPrice: material.price
                                 }
                             });
                         }
@@ -166,6 +200,13 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                     design: design.name
                                 }
                             });
+
+                            setPrice(function (previousValue) {
+                                return{
+                                    ...previousValue,
+                                    designPrice: design.price
+                                }
+                            });
                         }
 
                         if (name === 'Diseño') {
@@ -181,7 +222,33 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                         }
 
                     })
-                   
+                    // list.map(({elemName, index, items}) => {
+                    //     //console.log(name +" " + elemName)
+
+                    //     if (elemName === name) {
+                    //         return(
+                    //             items.map(({ imgName, imgEnlace, display, indexItem }) => {
+
+                    //                 const showPossibilities = () => {
+                    //                     handleSelected(index,indexItem);
+
+                    //                 }
+
+                    //                 return (
+                    //                     <Options
+                    //                     name={imgName}
+                    //                     imgElement={imgEnlace}
+                    //                     isSelect = {display}
+                    //                     selected = {showPossibilities}
+                    //                     ></Options>
+                    //                     );
+                    //             }
+                    //         )
+
+                    //         );
+                    //     }
+                    // }
+                    // )
                 }
 
 

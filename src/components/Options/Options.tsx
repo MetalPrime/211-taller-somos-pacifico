@@ -12,7 +12,6 @@ interface Options {
 
 
 export const Options : React.FC<Options> = ({name,imgElement,isSelect,selected}) => {
-    console.log("vivo")
     var img = getImageSrcFromUrl(imgElement);
 
     return(

@@ -72,21 +72,25 @@ const articleTypes = [
       colors: [
         {
           name: 'red',
-          img: 'aosdas.jpg'
+          img: 'aosdas.jpg',
+          price: 5
         },
         {
           name: 'blue',
-          img: 'aosdas.jpg'
+          img: 'aosdas.jpg',
+          price: 10
         }
       ],
       materials: [
         {
           name: 'aluminum',
-          img: 'asdq12.jpg'
+          img: 'asdq12.jpg',
+          price : 6
         },
         {
           name: 'plastic',
           img: 'sdfd.dfd',
+          price : 12
 
         }
       ],
@@ -94,10 +98,12 @@ const articleTypes = [
           {
             name: 'design',
             img: 'sdfd.jfp',
+            price : 10
           },
           {
             name: 'design',
             img: 'sdfd.jfp',
+            price : 10
           }
       ]
     },
@@ -108,26 +114,31 @@ const articleTypes = [
       colors: [
         {
           name: 'black',
-          img: 'aosdas.jpg'
+          img: 'aosdas.jpg',
+          price: 10,
         },
         {
           name: 'white',
-          img: 'aosdas.jpg'
+          img: 'aosdas.jpg',
+          price: 10,
         }
       ],
       materials: [
         {
           name: 'plastic',
           img: 'sdfd.dfd',
+          price: 10,
         },
         {
           name: 'leather',
           img: 'sdfd.dfd',
+          price: 10,
 
         },
         {
           name: 'paper',
           img: 'sdfd.dfd',
+          price: 10,
 
         }
       ],
@@ -135,10 +146,12 @@ const articleTypes = [
           {
             name: 'design',
             img: 'sdfd.jfp',
+            price: 10,
           },
           {
             name: 'design',
             img: 'sdfd.jfp',
+            price: 10,
           }
       ]
     },
@@ -149,18 +162,21 @@ const articleTypes = [
       colors: [
         {
           name: 'yellow',
-          img: 'aosdas.jpg'
+          img: 'aosdas.jpg',
+          price: 5
         },
       ],
       materials: [
         {
           name: 'cotton',
           img: 'sdfd.dfd',
+          price: 5
 
         },
         {
           name: 'poliester',
           img: 'sdfd.dfd',
+          price: 5
 
         }
       ],
@@ -168,10 +184,12 @@ const articleTypes = [
           {
             name: 'design',
             img: 'sdfd.jfp',
+            price: 5
           },
           {
             name: 'design',
             img: 'sdfd.jfp',
+            price: 5
           }
       ]
     },
@@ -188,7 +206,12 @@ export const App = () => {
 
     const [displays, setDisplays] = React.useState(initialSelectors);
 
-    const [itemSelected, setItemSelected] = React.useState("ffd");
+    const [itemPrice, setitemPrice] = React.useState({
+      typePrice : null as null|number,
+      colorPrice : null as null|number,
+      materialPrice : null as null|number,
+      designPrice : null as null|number,
+    });
 
     const [price, setPrice] = React.useState(currentPrice);
 
@@ -214,8 +237,9 @@ export const App = () => {
     }
 
     React.useEffect(()=>{
-        //setPrice(amount * itemSelected.price);
-    },[amount, itemSelected]);
+        setPrice(amount * ((itemPrice.colorPrice!=null? itemPrice.colorPrice : 0) + (itemPrice.designPrice!=null? itemPrice.designPrice : 0)+ (itemPrice.materialPrice!=null? itemPrice.materialPrice : 0)+ (itemPrice.typePrice!=null? itemPrice.typePrice : 0)));
+      
+    },[amount, itemPrice]);
 
 
     const handleBuy = () => {
@@ -235,7 +259,7 @@ export const App = () => {
                     () =>
                         <section className='App'>
                             <article className='App__commands'>
-                                <p> config: {JSON.stringify(config)}</p>
+                                <p> config: {JSON.stringify(itemPrice)}</p>
                                 <section >
                                     {
                                         initialSelectors.map(({ id, name, display }) => {
@@ -254,6 +278,9 @@ export const App = () => {
                                                     list={articleTypes}
                                                     config={config}
                                                     setConfig={setConfig}
+                                                    price={itemPrice}
+                                                    setPrice={setitemPrice}
+                                                    
                                                     
                                                 ></SelectionElements>
                                             );
