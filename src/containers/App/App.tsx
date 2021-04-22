@@ -259,7 +259,7 @@ export const App = () => {
                     () =>
                         <section className='App'>
                             <article className='App__commands'>
-                                <p> config: {JSON.stringify(itemPrice)}</p>
+                                {/* <p> config: {JSON.stringify(itemPrice)}</p> */}
                                 <section >
                                     {
                                         initialSelectors.map(({ id, name, display }) => {

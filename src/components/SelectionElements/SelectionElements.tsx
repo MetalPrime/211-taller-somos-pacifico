@@ -47,34 +47,6 @@ interface Price {
 
 export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,  showOptions, list, config, setConfig, price, setPrice }) => {
 
-    // const [selected, setSelected] = React.useState(list);
-
-    // const handleSelected = (id : number, idtems : number) => {
-    //     const copy = list.slice();
-    //     const index = copy.findIndex(elem =>{
-    //         return elem.index === id;
-    //     });
-
-    //     const itemscopy = copy[index].items;
-    //     const indexItem = itemscopy.findIndex(elem =>{
-    //         return elem.indexItem === idtems;
-    //     });
-
-    //     if (!itemscopy[indexItem].display) {
-    //         copy.forEach(elem => {
-    //             elem.items.forEach(inner => {
-    //                 inner.display = false;
-    //             });
-    //         });
-    //         itemscopy[indexItem].display = true;
-    //         setSelected(copy);
-    //         setItemSelected(itemscopy[indexItem]);
-
-    //     } else {
-    //         itemscopy[indexItem].display = false;
-    //         setSelected(copy);
-    //     }
-    // }
     const selectedArticleType = list.find(article => {
         return article.name === config.type
     });
@@ -92,6 +64,8 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
 
                     list.map(articleType => {
                         const handleClick = () => {
+
+
                             setConfig(function (previousValue) {
                                 return {
                                     ...previousValue,
@@ -116,6 +90,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                             name={articleType.name}
                             imgElement={articleType.img}
                             selected={handleClick}
+                            isSelect={config.type === articleType.name ? true : false}
                         //style={{ backgroundColor: config.type === articleType.name ? 'lightblue' : 'white' }}
                         //onClick={handleClick}>
                         //{articleType.name} {articleType.price}
@@ -142,6 +117,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                     colorPrice: color.price
                                 }
                             });
+
                         }
 
                         if (name === 'Color') {
@@ -149,6 +125,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                 key={color.name}
                                 imgElement={color.img}
                                 selected={handleClick}
+                                isSelect={config.color === color.name ? true : false}
                             //style={{ backgroundColor: config.color === color.name ? 'lightblue' : 'white' }}
                             //onClick={handleClick}
                             >
@@ -175,6 +152,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                     materialPrice: material.price
                                 }
                             });
+
                         }
 
                         if (name === 'Material') {
@@ -182,6 +160,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                 key={material.name}
                                 imgElement={material.img}
                                 selected={handleClick}
+                                isSelect={config.material === material.name ? true : false}
                             //style={{ backgroundmaterial: config.material === material.name ? 'lightblue' : 'white' }}
                             //onClick={handleClick}
                             >
@@ -207,6 +186,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                     designPrice: design.price
                                 }
                             });
+
                         }
 
                         if (name === 'Diseño') {
@@ -214,6 +194,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                 key={design.name}
                                 imgElement={design.img}
                                 selected={handleClick}
+                                isSelect={config.design === design.name ? true : false}
                             //style={{ backgrounddesign: config.design === design.name ? 'lightblue' : 'white' }}
                             //onClick={handleClick}
                             >

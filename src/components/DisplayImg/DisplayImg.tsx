@@ -40,11 +40,11 @@ export const DisplayImg: React.FC<DisplayImg> = ({ isNone, mainItemColor, mainIt
 
             {
                 isNone && 
-                <section>
-                <h1>{mainItemColor}</h1>
-                <h1>{mainItemDesign}</h1>
-                <h1>{mainItemMaterial}</h1>
-                <h1>{mainItemType}</h1>
+                <section className='DisplayImg__imgs'>
+                <img src={mainItemColor==null? undefined : mainItemColor} alt="" className="DisplayImg__img"/>
+                <img src={mainItemDesign==null? undefined : mainItemDesign} alt="" className="DisplayImg__img"/>
+                <img src={mainItemMaterial==null? undefined : mainItemMaterial} alt="" className="DisplayImg__img"/>
+                <img src={mainItemType==null? undefined : mainItemType} alt="" className="DisplayImg__img"/>
                 </section>
             }
 
