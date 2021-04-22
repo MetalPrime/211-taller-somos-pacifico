@@ -13,7 +13,8 @@ interface SelectionElements {
     setConfig: React.Dispatch<React.SetStateAction<Configuration>>;
     price: Price;
     setPrice : React.Dispatch<React.SetStateAction<Price>>;
-
+    imgSrc : Configuration;
+    setImgSrc : React.Dispatch<React.SetStateAction<Configuration>>;
 }
 
 interface OptionsElements {
@@ -45,7 +46,7 @@ interface Price {
     designPrice: number | null;
 }
 
-export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,  showOptions, list, config, setConfig, price, setPrice }) => {
+export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,  showOptions, list, config, setConfig, price, setPrice, imgSrc, setImgSrc }) => {
 
     const selectedArticleType = list.find(article => {
         return article.name === config.type
@@ -61,6 +62,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
             {displays && <section className='SelectionElements__options'>
 
                 {
+
 
                     list.map(articleType => {
                         const handleClick = () => {
@@ -79,6 +81,14 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                     typePrice: articleType.price
                                 }
                             });
+
+                            setImgSrc(function (previousValue) {
+                                return{
+                                    ...previousValue,
+                                    type: articleType.img
+                                }
+                            });
+                            
 
                             
                         }
@@ -118,6 +128,13 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                 }
                             });
 
+                            setImgSrc(function (previousValue) {
+                                return{
+                                    ...previousValue,
+                                    color: color.img
+                                }
+                            });
+
                         }
 
                         if (name === 'Color') {
@@ -152,6 +169,12 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                     materialPrice: material.price
                                 }
                             });
+                            setImgSrc(function (previousValue) {
+                                return{
+                                    ...previousValue,
+                                    material: material.img
+                                }
+                            });
 
                         }
 
@@ -184,6 +207,13 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                 return{
                                     ...previousValue,
                                     designPrice: design.price
+                                }
+                            });
+
+                            setImgSrc(function (previousValue) {
+                                return{
+                                    ...previousValue,
+                                    design: design.img
                                 }
                             });
 

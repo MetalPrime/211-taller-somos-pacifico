@@ -13,7 +13,6 @@ interface Options {
 
 export const Options : React.FC<Options> = ({name,imgElement,isSelect,selected}) => {
     var img = getImageSrcFromUrl(imgElement);
-    console.log(isSelect);
     return(
         <button 
         onClick = {selected}

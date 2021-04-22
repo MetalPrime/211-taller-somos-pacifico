@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { getImageSrcFromUrl } from '../../utils/getImageSrcFromUrl';
 import './DisplayImg.css';
 import OptionNote from './optionNote.svg';
 import OptionShirt from './optionShirt.svg';
@@ -11,12 +12,12 @@ interface DisplayImg {
     mainItemColor : null |string;
     mainItemMaterial : null |string;
     mainItemDesign : null |string;
-
 }
 
 
 export const DisplayImg: React.FC<DisplayImg> = ({ isNone, mainItemColor, mainItemDesign, mainItemMaterial, mainItemType }) => {
 
+    console.log(mainItemType);
     if(mainItemColor === null && mainItemDesign === null && mainItemMaterial === null && mainItemType === null){
         isNone = false;
     } else {
@@ -41,10 +42,10 @@ export const DisplayImg: React.FC<DisplayImg> = ({ isNone, mainItemColor, mainIt
             {
                 isNone && 
                 <section className='DisplayImg__imgs'>
-                <img src={mainItemColor==null? undefined : mainItemColor} alt="" className="DisplayImg__img"/>
-                <img src={mainItemDesign==null? undefined : mainItemDesign} alt="" className="DisplayImg__img"/>
-                <img src={mainItemMaterial==null? undefined : mainItemMaterial} alt="" className="DisplayImg__img"/>
-                <img src={mainItemType==null? undefined : mainItemType} alt="" className="DisplayImg__img"/>
+                <img src={mainItemColor==null? undefined : getImageSrcFromUrl(mainItemColor) } alt="" className="DisplayImg__img"/>
+                <img src={mainItemDesign==null? undefined : getImageSrcFromUrl(mainItemDesign) } alt="" className="DisplayImg__img"/>
+                <img src={mainItemMaterial==null? undefined : getImageSrcFromUrl(mainItemMaterial) } alt="" className="DisplayImg__img"/>
+                <img src={mainItemType==null? undefined : getImageSrcFromUrl(mainItemType) } alt="" className="DisplayImg__img"/>
                 </section>
             }
 
