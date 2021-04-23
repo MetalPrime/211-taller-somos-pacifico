@@ -69,6 +69,7 @@ const articleTypes = [
     name: 'thermos',
     img: 'thermos.png',
     price: 15,
+    icon: 'optionThermo.svg',
     colors: [
       {
         name: 'red',
@@ -111,6 +112,7 @@ const articleTypes = [
     name: 'notebook',
     img: 'libreta.png',
     price: 20,
+    icon: 'optionNote.svg',
     colors: [
       {
         name: 'black',
@@ -157,13 +159,33 @@ const articleTypes = [
   },
   {
     name: 't-shirt',
-    img: 'camisaBlanca.png',
+    img: 'camisaBase.png',
     price: 25,
+    icon: 'optionShirt.svg',
     colors: [
       {
         name: 'yellow',
-        img: 'aosdas.jpg',
+        img: 'camisaAmarilla.png',
+        icon : '#2d4179',
+        price: 7
+      },
+      {
+        name: 'blue',
+        img: 'camisaAzul.png',
+        icon : '#CAA937',
         price: 5
+      },
+      {
+        name: 'black',
+        img: 'camisaNegra.png',
+        icon : '#000000',
+        price: 2,
+      },
+      {
+        name: 'white',
+        img: 'camisaBase.png',
+        icon : '#FFFFFF',
+        price: 0,
       },
     ],
     materials: [

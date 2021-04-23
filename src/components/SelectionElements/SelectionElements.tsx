@@ -21,6 +21,7 @@ interface OptionsElements {
     name: string;
     img: string;
     price: number;
+    icon : string;
     colors: ItemsElements[];
     materials: ItemsElements[];
     design: ItemsElements[];
@@ -98,7 +99,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
 
                             key={articleType.name}
                             name={articleType.name}
-                            imgElement={articleType.img}
+                            imgElement={articleType.icon}
                             selected={handleClick}
                             isSelect={config.type === articleType.name ? true : false}
                         //style={{ backgroundColor: config.type === articleType.name ? 'lightblue' : 'white' }}
@@ -233,33 +234,6 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                         }
 
                     })
-                    // list.map(({elemName, index, items}) => {
-                    //     //console.log(name +" " + elemName)
-
-                    //     if (elemName === name) {
-                    //         return(
-                    //             items.map(({ imgName, imgEnlace, display, indexItem }) => {
-
-                    //                 const showPossibilities = () => {
-                    //                     handleSelected(index,indexItem);
-
-                    //                 }
-
-                    //                 return (
-                    //                     <Options
-                    //                     name={imgName}
-                    //                     imgElement={imgEnlace}
-                    //                     isSelect = {display}
-                    //                     selected = {showPossibilities}
-                    //                     ></Options>
-                    //                     );
-                    //             }
-                    //         )
-
-                    //         );
-                    //     }
-                    // }
-                    // )
                 }
 
 
