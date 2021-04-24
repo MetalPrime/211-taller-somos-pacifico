@@ -31,6 +31,7 @@ interface ItemsElements {
     name: string;
     img: string;
     price: number;
+    icon?: string;
 }
 
 interface Configuration {
@@ -41,10 +42,10 @@ interface Configuration {
 }
 
 interface Price {
-    typePrice: number | null;
-    colorPrice: number | null;
-    materialPrice: number | null;
-    designPrice: number | null;
+    type: number | null;
+    color: number | null;
+    material: number | null;
+    design: number | null;
 }
 
 export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,  showOptions, list, config, setConfig, price, setPrice, imgSrc, setImgSrc }) => {
@@ -79,7 +80,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                             setPrice(function (previousValue) {
                                 return{
                                     ...previousValue,
-                                    typePrice: articleType.price
+                                    type: articleType.price
                                 }
                             });
 
@@ -96,7 +97,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
 
                         if(name === 'Articulo'){
                             return <Options
-
+                            kindItem = {'Articulo'}
                             key={articleType.name}
                             name={articleType.name}
                             imgElement={articleType.icon}
@@ -125,7 +126,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                             setPrice(function (previousValue) {
                                 return{
                                     ...previousValue,
-                                    colorPrice: color.price
+                                    color: color.price
                                 }
                             });
 
@@ -141,7 +142,9 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                         if (name === 'Color') {
                             return <Options
                                 key={color.name}
-                                imgElement={color.img}
+                                kindItem={'Color'}
+                                name={color.name}
+                                imgElement={color.icon === undefined? '' : color.icon}
                                 selected={handleClick}
                                 isSelect={config.color === color.name ? true : false}
                             //style={{ backgroundColor: config.color === color.name ? 'lightblue' : 'white' }}
@@ -167,7 +170,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                             setPrice(function (previousValue) {
                                 return{
                                     ...previousValue,
-                                    materialPrice: material.price
+                                    material: material.price
                                 }
                             });
                             setImgSrc(function (previousValue) {
@@ -182,6 +185,8 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                         if (name === 'Material') {
                             return <Options
                                 key={material.name}
+                                kindItem={'Material'}
+                                name={material.name}
                                 imgElement={material.img}
                                 selected={handleClick}
                                 isSelect={config.material === material.name ? true : false}
@@ -207,7 +212,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                             setPrice(function (previousValue) {
                                 return{
                                     ...previousValue,
-                                    designPrice: design.price
+                                    design: design.price
                                 }
                             });
 
@@ -223,6 +228,8 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                         if (name === 'Diseño') {
                             return <Options
                                 key={design.name}
+                                name={design.name}
+                                kindItem={'Diseño'}
                                 imgElement={design.img}
                                 selected={handleClick}
                                 isSelect={config.design === design.name ? true : false}

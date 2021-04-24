@@ -236,10 +236,10 @@ export const App = () => {
   const [displays, setDisplays] = React.useState(initialSelectors);
 
   const [itemPrice, setitemPrice] = React.useState({
-    typePrice: null as null | number,
-    colorPrice: null as null | number,
-    materialPrice: null as null | number,
-    designPrice: null as null | number,
+    type: null as null | number,
+    color: null as null | number,
+    material: null as null | number,
+    design: null as null | number,
   });
 
   const [price, setPrice] = React.useState(currentPrice);
@@ -270,7 +270,7 @@ export const App = () => {
 
 
   React.useEffect(() => {
-    setPrice(amount * ((itemPrice.colorPrice != null ? itemPrice.colorPrice : 0) + (itemPrice.designPrice != null ? itemPrice.designPrice : 0) + (itemPrice.materialPrice != null ? itemPrice.materialPrice : 0) + (itemPrice.typePrice != null ? itemPrice.typePrice : 0)));
+    setPrice(amount * ((itemPrice.color != null ? itemPrice.color : 0) + (itemPrice.design != null ? itemPrice.design : 0) + (itemPrice.material != null ? itemPrice.material : 0) + (itemPrice.type != null ? itemPrice.type : 0)));
 
   }, [amount, itemPrice]);
 
