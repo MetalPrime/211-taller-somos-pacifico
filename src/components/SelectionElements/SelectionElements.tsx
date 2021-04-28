@@ -144,7 +144,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                 key={color.name}
                                 kindItem={'Color'}
                                 name={color.name}
-                                imgElement={color.icon === undefined? '' : color.icon}
+                                imgElement={color.icon === undefined? color.img : color.icon}
                                 selected={handleClick}
                                 isSelect={config.color === color.name ? true : false}
                             //style={{ backgroundColor: config.color === color.name ? 'lightblue' : 'white' }}
@@ -230,7 +230,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                 key={design.name}
                                 name={design.name}
                                 kindItem={'Diseño'}
-                                imgElement={design.img}
+                                imgElement={design.icon === undefined? design.img : design.icon}
                                 selected={handleClick}
                                 isSelect={config.design === design.name ? true : false}
                             //style={{ backgrounddesign: config.design === design.name ? 'lightblue' : 'white' }}

@@ -4,21 +4,46 @@
     color: white;
     width: 100%;
     display: flex;
-    font-family: 'Gordita Thin';    
+    font-family: 'Gordita Thin'; 
+    height: 100vh;   
 }
 
 .App__commands{
     width: 30%;
     background-color: rgba(46, 43, 103, 1);
     border-radius: 35px 0 0 35px ;
-
+    height: 100%;
+    
 }
+
+.App__options {
+    height: 70%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #685AD1;
+    border-radius: 10px;
+  }
 
 .App__update{
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    height: fit-content;
 }
 
 .App__display{

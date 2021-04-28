@@ -15,9 +15,6 @@ interface Options {
 export const Options: React.FC<Options> = ({ name, imgElement, isSelect, selected, kindItem }) => {
     var img = getImageSrcFromUrl(imgElement);
 
-    if(kindItem === 'Color'){
-        console.log(img)
-    }
     return (
         <button
             onClick={selected}

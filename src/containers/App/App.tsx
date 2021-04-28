@@ -166,13 +166,13 @@ const articleTypes = [
       {
         name: 'yellow',
         img: 'camisaAmarilla.png',
-        icon : '#2d4179',
+        icon : '#CAA937',
         price: 7
       },
       {
         name: 'blue',
         img: 'camisaAzul.png',
-        icon : '#CAA937',
+        icon : '#2d4179',
         price: 5
       },
       {
@@ -204,8 +204,9 @@ const articleTypes = [
     ],
     design: [
       {
-        name: 'design',
-        img: 'sdfd.jfp',
+        name: 'Mira ve',
+        img: 'diseñoMiraVe.png',
+        icon: 'MIRAVE.png',
         price: 5
       },
       {
@@ -293,7 +294,7 @@ export const App = () => {
             <section className='App'>
               <article className='App__commands'>
                 {/* <p> config: {JSON.stringify(itemPrice)}</p> */}
-                <section >
+                <section className='App__options'>
                   {
                     initialSelectors.map(({ id, name, display }) => {
 
