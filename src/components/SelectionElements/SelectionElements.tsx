@@ -54,6 +54,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
         return article.name === config.type
     });
 
+
     return (
         <div className='SelectionElements'>
             <section className='SelectionElements__display'>

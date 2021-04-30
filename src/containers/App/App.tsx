@@ -210,8 +210,15 @@ const articleTypes = [
         price: 5
       },
       {
-        name: 'design',
-        img: 'sdfd.jfp',
+        name: 'Gato',
+        img: 'diseñoGato.png',
+        icon: 'GATO.png',
+        price: 5
+      },
+      {
+        name: 'Ya te Caigo',
+        img: 'diseñoYaTeCaigo.png',
+        icon: 'YATECAIGO.png',
         price: 5
       }
     ]
