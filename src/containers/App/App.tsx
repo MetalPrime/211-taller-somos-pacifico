@@ -110,39 +110,59 @@ const articleTypes = [
   },
   {
     name: 'notebook',
-    img: 'libreta.png',
+    img: 'notebook/notebookBase.png',
     price: 20,
     icon: 'optionNote.svg',
     colors: [
       {
+        name: 'yellow',
+        img: 'notebook/notebookAmarilla.png',
+        icon : '#CAA937',
+        price: 7
+      },
+      {
+        name: 'blue',
+        img: 'notebook/notebookBlue.png',
+        icon : '#2d4179',
+        price: 5
+      },
+      {
         name: 'black',
-        img: 'aosdas.jpg',
-        price: 10,
+        img: 'notebook/notebookNegro.png',
+        icon : '#000000',
+        price: 2,
       },
       {
         name: 'white',
-        img: 'aosdas.jpg',
-        price: 10,
-      }
+        img: 'notebook/notebookBase.png',
+        icon : '#FFFFFF',
+        price: 0,
+      },
+      {
+        name: 'orange',
+        img: 'notebook/notebookNaranja.png',
+        icon : '#cb651a',
+        price: 0,
+      },
     ],
     materials: [
       {
-        name: 'plastic',
-        img: 'sdfd.dfd',
+        name: 'leather',
+        img: 'notebook/notebookLeather.png',
         price: 10,
       },
       {
-        name: 'leather',
-        img: 'sdfd.dfd',
-        price: 10,
+        name: 'recycle',
+        img: 'notebook/notebookRecycle.png',
+        price: 2,
 
       },
       {
         name: 'paper',
-        img: 'sdfd.dfd',
-        price: 10,
+        img: 'notebook/notebookBase.png',
+        price: 0,
 
-      }
+      },
     ],
     design: [
       {
@@ -159,31 +179,31 @@ const articleTypes = [
   },
   {
     name: 't-shirt',
-    img: 'camisaBase.png',
+    img: 'shirt/camisaBase.png',
     price: 25,
     icon: 'optionShirt.svg',
     colors: [
       {
         name: 'yellow',
-        img: 'camisaAmarilla.png',
+        img: 'shirt/camisaAmarilla.png',
         icon : '#CAA937',
         price: 7
       },
       {
         name: 'blue',
-        img: 'camisaAzul.png',
+        img: 'shirt/camisaAzul.png',
         icon : '#2d4179',
         price: 5
       },
       {
         name: 'black',
-        img: 'camisaNegra.png',
+        img: 'shirt/camisaNegra.png',
         icon : '#000000',
         price: 2,
       },
       {
         name: 'white',
-        img: 'camisaBase.png',
+        img: 'shirt/camisaBase.png',
         icon : '#FFFFFF',
         price: 0,
       },
@@ -205,20 +225,20 @@ const articleTypes = [
     design: [
       {
         name: 'Mira ve',
-        img: 'diseñoMiraVe.png',
-        icon: 'MIRAVE.png',
+        img: 'shirt/diseñoMiraVe.png',
+        icon: 'shirt/MIRAVE.png',
         price: 5
       },
       {
         name: 'Gato',
-        img: 'diseñoGato.png',
-        icon: 'GATO.png',
+        img: 'shirt/diseñoGato.png',
+        icon: 'shirt/GATO.png',
         price: 5
       },
       {
         name: 'Ya te Caigo',
-        img: 'diseñoYaTeCaigo.png',
-        icon: 'YATECAIGO.png',
+        img: 'shirt/diseñoYaTeCaigo.png',
+        icon: 'shirt/YATECAIGO.png',
         price: 5
       }
     ]
