@@ -8,10 +8,10 @@ import OptionThermo from './optionThermo.svg';
 
 interface DisplayImg {
     isNone?: boolean;
-    mainItemType : null | string;
-    mainItemColor : null |string;
-    mainItemMaterial : null |string;
-    mainItemDesign : null |string;
+    mainItemType : null | string | undefined;
+    mainItemColor : null |string | undefined;
+    mainItemMaterial : null |string | undefined;
+    mainItemDesign : null |string | undefined;
 }
 
 
@@ -42,10 +42,11 @@ export const DisplayImg: React.FC<DisplayImg> = ({ isNone, mainItemColor, mainIt
             {
                 isNone && 
                 <section className='DisplayImg__imgs'>
-                <img src={mainItemType==null? undefined : getImageSrcFromUrl(mainItemType) } alt="" className="DisplayImg__img"/>
-                <img src={mainItemColor==null? undefined : getImageSrcFromUrl(mainItemColor) } alt="" className="DisplayImg__img"/>
-                <img src={mainItemDesign==null? undefined : getImageSrcFromUrl(mainItemDesign) } alt="" className="DisplayImg__img"/>
-                <img src={mainItemMaterial==null? undefined : getImageSrcFromUrl(mainItemMaterial) } alt="" className="DisplayImg__img"/>
+                <img src={mainItemType==null? undefined : getImageSrcFromUrl(mainItemType) } alt={mainItemType==null? undefined : mainItemType} className="DisplayImg__img"/>
+                <img src={mainItemMaterial==null? undefined : getImageSrcFromUrl(mainItemMaterial) } alt={mainItemMaterial==null? undefined : mainItemMaterial} className="DisplayImg__img"/>
+                <img src={mainItemColor==null? undefined : getImageSrcFromUrl(mainItemColor) } alt={mainItemColor==null? undefined : mainItemColor} className="DisplayImg__img" style={{mixBlendMode : 'hard-light'}}/>
+                <img src={mainItemDesign==null? undefined : getImageSrcFromUrl(mainItemDesign) } alt={mainItemDesign==null? undefined : mainItemDesign} className="DisplayImg__img"/>
+                
                 
                 </section>
             }

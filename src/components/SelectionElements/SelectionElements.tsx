@@ -69,9 +69,10 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
 
                     list.map(articleType => {
                         const handleClick = () => {
-
+                            
 
                             setConfig(function (previousValue) {
+
                                 return {
                                     ...previousValue,
                                     type: articleType.name
@@ -148,7 +149,6 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                 imgElement={color.icon === undefined? color.img : color.icon}
                                 selected={handleClick}
                                 isSelect={config.color === color.name ? true : false}
-                            //style={{ backgroundColor: config.color === color.name ? 'lightblue' : 'white' }}
                             //onClick={handleClick}
                             >
                                 //{color.name}
