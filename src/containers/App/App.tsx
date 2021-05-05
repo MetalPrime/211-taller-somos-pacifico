@@ -5,6 +5,8 @@ import { SelectionElements } from '../../components/SelectionElements/SelectionE
 import { HashRouter, Route, useHistory } from 'react-router-dom';
 import { Amount } from '../../components/Amount/Amount';
 import { Price } from '../../components/Price/Price';
+import { ProductContext } from '../../utils/ProductContext';
+import { ProductType } from '../../utils/ProductType';
 
 const initialSelectors = [
   {
@@ -117,31 +119,31 @@ const articleTypes = [
       {
         name: 'yellow',
         img: 'notebook/notebookAmarilla.png',
-        icon : '#CAA937',
+        icon: '#CAA937',
         price: 7
       },
       {
         name: 'blue',
         img: 'notebook/notebookBlue.png',
-        icon : '#2d4179',
+        icon: '#2d4179',
         price: 5
       },
       {
         name: 'black',
         img: 'notebook/notebookNegro.png',
-        icon : '#000000',
+        icon: '#000000',
         price: 2,
       },
       {
         name: 'white',
         img: 'notebook/notebookBase.png',
-        icon : '#FFFFFF',
+        icon: '#FFFFFF',
         price: 0,
       },
       {
         name: 'orange',
         img: 'notebook/notebookNaranja.png',
-        icon : '#cb651a',
+        icon: '#cb651a',
         price: 0,
       },
     ],
@@ -186,25 +188,25 @@ const articleTypes = [
       {
         name: 'yellow',
         img: 'shirt/camisaAmarilla.png',
-        icon : '#CAA937',
+        icon: '#CAA937',
         price: 7
       },
       {
         name: 'blue',
         img: 'shirt/camisaAzul.png',
-        icon : '#2d4179',
+        icon: '#2d4179',
         price: 5
       },
       {
         name: 'black',
         img: 'shirt/camisaNegra.png',
-        icon : '#000000',
+        icon: '#000000',
         price: 2,
       },
       {
         name: 'white',
         img: 'shirt/camisaBase.png',
-        icon : '#FFFFFF',
+        icon: '#FFFFFF',
         price: 0,
       },
     ],
@@ -274,6 +276,8 @@ export const App = () => {
 
   const [amount, setAmount] = React.useState(0);
 
+  const [products, setProducts] = React.useState<ProductType[]>([])
+
   const history = useHistory();
 
   const handleDisplay = (id: number) => {
@@ -313,86 +317,89 @@ export const App = () => {
 
   return (
     <main >
-      <HashRouter basename={process.env.PUBLIC_URL}>
+      <ProductContext.Provider value={{ products }}>
+
+        <HashRouter basename={process.env.PUBLIC_URL}>
 
 
-        <Route path="/" exact render={
-          () =>
-            <section className='App'>
-              <article className='App__commands'>
-                {/* <p> config: {JSON.stringify(itemPrice)}</p> */}
-                <section className='App__options'>
-                  {
-                    initialSelectors.map(({ id, name, display }) => {
+          <Route path="/" exact render={
+            () =>
+              <section className='App'>
+                <article className='App__commands'>
+                  <section className='App__options'>
+                    {
+                      initialSelectors.map(({ id, name, display }) => {
 
-                      const showOptions = () => {
-                        handleDisplay(id);
+                        const showOptions = () => {
+                          handleDisplay(id);
 
+                        }
+
+                        return (
+                          <SelectionElements
+                            name={name}
+                            displays={display}
+                            key={id}
+                            showOptions={showOptions}
+                            list={articleTypes}
+                            config={config}
+                            setConfig={setConfig}
+                            price={itemPrice}
+                            setPrice={setitemPrice}
+                            imgSrc={configImg}
+                            setImgSrc={setConfigImg}
+
+
+                          ></SelectionElements>
+                        );
                       }
 
-                      return (
-                        <SelectionElements
-                          name={name}
-                          displays={display}
-                          key={id}
-                          showOptions={showOptions}
-                          list={articleTypes}
-                          config={config}
-                          setConfig={setConfig}
-                          price={itemPrice}
-                          setPrice={setitemPrice}
-                          imgSrc={configImg}
-                          setImgSrc={setConfigImg}
-
-
-                        ></SelectionElements>
-                      );
+                      )
                     }
+                  </section>
+                  <section className='App__update'>
+                    <Amount
+                      list={options}
+                      setAmount={setAmount}
 
-                    )
-                  }
-                </section>
-                <section className='App__update'>
-                  <Amount
-                    list={options}
-                    setAmount={setAmount}
+                    ></Amount>
+                    <Price
+                      currentPrice={price}
+                    ></Price>
+                  </section>
+                  <section className='App__btns'>
 
-                  ></Amount>
-                  <Price
-                    currentPrice={price}
-                  ></Price>
-                </section>
-                <section className='App__btns'>
-
-                  <button className="btn btn__recommend" onClick={handleRecommend}>Recomendar</button>
-                  <button className="btn btn__buy" onClick={handleBuy}>Comprar</button>
-                </section>
-              </article>
-              <article className='App__display'>
-                <DisplayImg
-                  isNone={false}
-                  mainItemColor={configImg.color}
-                  mainItemDesign={configImg.design}
-                  mainItemMaterial={configImg.material}
-                  mainItemType={configImg.type}
-                ></DisplayImg>
-              </article>
-            </section>
+                    <button className="btn btn__recommend" onClick={handleRecommend}>Recomendar</button>
+                    <button className="btn btn__buy" onClick={handleBuy}>Comprar</button>
+                  </section>
+                </article>
+                <article className='App__display'>
+                  <DisplayImg
+                    isNone={false}
+                    mainItemColor={configImg.color}
+                    mainItemDesign={configImg.design}
+                    mainItemMaterial={configImg.material}
+                    mainItemType={configImg.type}
+                  ></DisplayImg>
+                </article>
+              </section>
 
 
-        } />
+          } />
 
-        <Route path="/recomendar" render={
-          () =>
-            <h1>Recomendar</h1>
-        } />
+          <Route path="/recomendar" render={
+            () =>
+              <h1>Recomendar</h1>
+          } />
 
-        <Route path="/comprar" render={
-          () =>
-            <h1>Comprar</h1>
-        } />
+          <Route path="/comprar" render={
+            () =>
+              <h1>Comprar</h1>
+          } />
 
-      </HashRouter>
+        </HashRouter>
+      </ProductContext.Provider>
+
     </main>
   );
 }
