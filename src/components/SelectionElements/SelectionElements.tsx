@@ -1,7 +1,11 @@
 import * as React from 'react';
+import {useContext} from 'react';
+import { useParams } from 'react-router-dom';
 import './SelectionElements.css';
 import ArrowLogo from './arrow.svg';
 import { Options } from '../Options/Options';
+import { ProductContext } from '../../utils/ProductContext';
+import { ProductType } from '../../utils/ProductType';
 
 interface SelectionElements {
     name?: string;
@@ -15,6 +19,8 @@ interface SelectionElements {
     setPrice : React.Dispatch<React.SetStateAction<Price>>;
     imgSrc : Configuration;
     setImgSrc : React.Dispatch<React.SetStateAction<Configuration>>;
+    product : ProductType;
+    setProduct : React.Dispatch<React.SetStateAction<ProductType>>
 }
 
 interface OptionsElements {
@@ -48,12 +54,49 @@ interface Price {
     design: number | null;
 }
 
-export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,  showOptions, list, config, setConfig, price, setPrice, imgSrc, setImgSrc }) => {
+export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,  showOptions, list, config, setConfig, price, setPrice, imgSrc, setImgSrc, product,  setProduct }) => {
 
     const selectedArticleType = list.find(article => {
         return article.name === config.type
     });
 
+    const {products} = useContext(ProductContext);
+
+    
+      const handleTypeChange = (name: string, price: number, img: string) => {
+        setProduct((prev) => ({
+          ...prev,
+          setConfigTypeName: name,
+          setConfigTypePrice: price, 
+          setConfigTypeImage: img,
+        }));
+      }
+      const handleMaterialChange = (name: string, price: number, img: string) => {
+        setProduct((prev) => ({
+          ...prev,
+          setConfigMaterialName: name,
+          setConfigMaterialPrice: price, 
+          setConfigMaterialImage: img,
+        }));
+      }
+
+      const handleColorChange = (name: string, price: number, img: string) => {
+        setProduct((prev) => ({
+          ...prev,
+          setConfigColorName: name,
+          setConfigColorPrice: price, 
+          setConfigColorImage: img,
+        }));
+      }
+
+      const handleDesignChange = (name: string, price: number, img: string) => {
+        setProduct((prev) => ({
+          ...prev,
+          setConfigDesignName: name,
+          setConfigDesignPrice: price, 
+          setConfigDesignImage: img,
+        }));
+      }
 
     return (
         <div className='SelectionElements'>
@@ -79,6 +122,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                 }
                             });
 
+
                             setPrice(function (previousValue) {
                                 return{
                                     ...previousValue,
@@ -86,15 +130,15 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                 }
                             });
 
+
                             setImgSrc(function (previousValue) {
                                 return{
                                     ...previousValue,
                                     type: articleType.img
                                 }
                             });
-                            
 
-                            
+                            handleTypeChange(articleType.name,articleType.price,articleType.img)
                         }
 
                         if(name === 'Articulo'){
@@ -139,6 +183,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                 }
                             });
 
+                            handleColorChange(color.name,color.price,color.img);
                         }
 
                         if (name === 'Color') {
@@ -180,7 +225,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                     material: material.img
                                 }
                             });
-
+                            handleMaterialChange(material.name,material.price,material.img);
                         }
 
                         if (name === 'Material') {
@@ -223,7 +268,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                     design: design.img
                                 }
                             });
-
+                            handleDesignChange(design.name,design.price,design.img);
                         }
 
                         if (name === 'Diseño') {

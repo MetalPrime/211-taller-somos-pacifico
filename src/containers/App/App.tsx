@@ -2,11 +2,13 @@ import React from 'react';
 import './App.css';
 import { DisplayImg } from '../../components/DisplayImg/DisplayImg';
 import { SelectionElements } from '../../components/SelectionElements/SelectionElements';
-import { HashRouter, Route, useHistory } from 'react-router-dom';
+import { HashRouter, Route, useHistory, useParams } from 'react-router-dom';
 import { Amount } from '../../components/Amount/Amount';
 import { Price } from '../../components/Price/Price';
+import {Buy} from '../../components/Buy/Buy';
 import { ProductContext } from '../../utils/ProductContext';
 import { ProductType } from '../../utils/ProductType';
+
 
 const initialSelectors = [
   {
@@ -276,7 +278,49 @@ export const App = () => {
 
   const [amount, setAmount] = React.useState(0);
 
-  const [products, setProducts] = React.useState<ProductType[]>([])
+
+  const [products, setProducts] = React.useState<ProductType[]>([]);
+
+  
+  const {id} = useParams<{id?: string}>();
+
+  const productEdit = products.find((product) => product.id + ' '=== id);
+
+  const editError = id && !productEdit;
+
+
+  const [product, setProduct] = React.useState<ProductType>(productEdit || {
+    id : Date.now(),
+    setConfigTypeName : config.type == null? "": config.type,
+    setConfigTypeImage : configImg.type == null? "": configImg.type,
+    setConfigTypePrice : itemPrice.type == null? 0: itemPrice.type,
+    setConfigColorName : config.color == null? "": config.color,
+    setConfigColorImage : configImg.color == null? "": configImg.color,
+    setConfigColorPrice : itemPrice.color == null? 0: itemPrice.color,
+    setConfigMaterialName : config.material == null? "": config.material,
+    setConfigMaterialImage : configImg.material == null? "": configImg.material,
+    setConfigMaterialPrice : itemPrice.material == null? 0: itemPrice.material,
+    setConfigDesignName : config.design == null? "": config.design,
+    setConfigDesignImage : configImg.design == null? "": configImg.design,
+    setConfigDesignPrice : itemPrice.design == null? 0: itemPrice.design,
+    price: price,
+  } 
+    )
+  
+
+  const handleItemCreatedFinished =(newOrEditedItem : ProductType) => {
+    setProducts((prev) =>{
+      const editIndex = prev.findIndex(product => product.id === newOrEditedItem.id);
+      if(editIndex >= 0) {
+        const copy = [...prev];
+        return copy;
+      }
+
+      return [...prev, newOrEditedItem];
+    })
+  }
+
+
 
   const history = useHistory();
 
@@ -308,6 +352,7 @@ export const App = () => {
 
 
   const handleBuy = () => {
+    handleItemCreatedFinished(product);
     history.push('/comprar');
   }
 
@@ -322,7 +367,7 @@ export const App = () => {
         <HashRouter basename={process.env.PUBLIC_URL}>
 
 
-          <Route path="/" exact render={
+          <Route path={["/","/editProduct/:id"]} exact render={
             () =>
               <section className='App'>
                 <article className='App__commands'>
@@ -348,7 +393,8 @@ export const App = () => {
                             setPrice={setitemPrice}
                             imgSrc={configImg}
                             setImgSrc={setConfigImg}
-
+                            product={product}
+                            setProduct={setProduct}
 
                           ></SelectionElements>
                         );
@@ -394,7 +440,11 @@ export const App = () => {
 
           <Route path="/comprar" render={
             () =>
-              <h1>Comprar</h1>
+              <Buy 
+              products={products}
+              >
+
+              </Buy>
           } />
 
         </HashRouter>

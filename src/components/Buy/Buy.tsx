@@ -18,7 +18,7 @@ export const Buy: React.FC<Buy> = ({ products }) => {
             <section className='Buy__Options'>
                 {
                     products.map(product => {
-                        return <div>
+                        return <div key={product.id}>
                             <SaveItem
                             price={product.price}
                             setConfigColorImage={product.setConfigColorImage}
