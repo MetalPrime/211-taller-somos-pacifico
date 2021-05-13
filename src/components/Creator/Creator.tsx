@@ -254,44 +254,19 @@ interface Creator {
 
 export const Creator: React.FC<Creator> = ({ onFinish }) => {
 
-  const { products } = useContext(ProductContext);
+
 
 
   const { id } = useParams<{ id?: string }>();
-  const [config, setConfig] = React.useState({
-    type: null as null | string,
-    color: null as null | string,
-    material: null as null | string,
-    design: null as null | string,
-  });
+  
 
-  const [configImg, setConfigImg] = React.useState({
-    type: null as null | string,
-    color: null as null | string,
-    material: null as null | string,
-    design: null as null | string,
-  });
-
-  const [displays, setDisplays] = React.useState(initialSelectors);
-
-  const [itemPrice, setitemPrice] = React.useState({
-    type: null as null | number,
-    color: null as null | number,
-    material: null as null | number,
-    design: null as null | number,
-  });
-
-  const [price, setPrice] = React.useState(currentPrice);
-
-  const [amount, setAmount] = React.useState(0);
+  const { products } = useContext(ProductContext);
 
 
 
-
-
-  console.log(id);
-
-  const productEdit = products.find((product) => product.id + ' ' === id);
+  const productEdit = products.find((product) => {
+    console.log(product.id + '' === id);
+    return product.id + '' === id});
 
   const editError = id && !productEdit;
 
@@ -320,6 +295,35 @@ export const Creator: React.FC<Creator> = ({ onFinish }) => {
 
 
   const history = useHistory();
+
+
+
+  const [config, setConfig] = React.useState({
+    type: null as null | string,
+    color: null as null | string,
+    material: null as null | string,
+    design: null as null | string,
+  });
+
+  const [configImg, setConfigImg] = React.useState({
+    type: null as null | string,
+    color: null as null | string,
+    material: null as null | string,
+    design: null as null | string,
+  });
+
+  const [displays, setDisplays] = React.useState(initialSelectors);
+
+  const [itemPrice, setitemPrice] = React.useState({
+    type: null as null | number,
+    color: null as null | number,
+    material: null as null | number,
+    design: null as null | number,
+  });
+
+  const [price, setPrice] = React.useState(currentPrice);
+
+  const [amount, setAmount] = React.useState(0);
 
   const handleDisplay = (id: number) => {
     const copy = initialSelectors.slice();
@@ -359,7 +363,7 @@ export const Creator: React.FC<Creator> = ({ onFinish }) => {
   const handleRecommend = () => {
     history.push('/recomendar');
   }
-  if (editError) return <Redirect to="/newProduct" />
+  //if (editError) return <Redirect to="/newProduct" />
   return (
     <section className='Creator'>
       <section className='App'>

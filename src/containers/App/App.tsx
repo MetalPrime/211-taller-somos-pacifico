@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import { HashRouter, Route, useHistory, useParams,Redirect } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 
 import {Buy} from '../../components/Buy/Buy';
 import { ProductContext } from '../../utils/ProductContext';
@@ -16,8 +16,11 @@ export const App = () => {
   const handleItemCreatedFinished = (newOrEditedItem : ProductType) => {
     setProducts((prev) =>{
       
-      const editIndex = prev.findIndex(product => product.id === newOrEditedItem.id);
-      
+      const editIndex = prev.findIndex(product => {
+        //console.log(product.id + " " + newOrEditedItem.id);
+        return product.id === newOrEditedItem.id});
+     
+
       if(editIndex >= 0) {
         const copy = [...prev];
         copy[editIndex] = newOrEditedItem;
@@ -36,7 +39,7 @@ export const App = () => {
         <HashRouter basename={process.env.PUBLIC_URL}>
 
 
-          <Route path={["/editProduct/:id","/newProduct"]}  render={()=> <Creator onFinish={handleItemCreatedFinished}></Creator> }/>
+          <Route path={["/newProduct","/editProduct/:id"]}  render={()=> <Creator onFinish={handleItemCreatedFinished}></Creator> }/>
 
           <Route path="/recomendar" render={
             () =>
