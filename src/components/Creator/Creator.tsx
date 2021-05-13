@@ -71,44 +71,60 @@ const options = [
 const articleTypes = [
   {
     name: 'thermos',
-    img: 'thermos.png',
+    img: 'thermo/thermoBase.png',
     price: 15,
     icon: 'optionThermo.svg',
     colors: [
       {
         name: 'red',
-        img: 'aosdas.jpg',
+        img: 'thermo/thermoRojo.png',
+        icon : '#9f0a1c',
         price: 5
       },
       {
         name: 'blue',
-        img: 'aosdas.jpg',
+        img: 'thermo/thermoAzul.png',
+        icon : '#283382',
+        price: 10
+      },
+      {
+        name: 'orange',
+        img: 'thermo/thermoNaranja.png',
+        icon : '#cb651a',
         price: 10
       }
     ],
     materials: [
       {
         name: 'aluminum',
-        img: 'asdq12.jpg',
-        price: 6
+        img: 'thermo/thermoAluminio.png',
+        price: 12
       },
       {
         name: 'plastic',
-        img: 'sdfd.dfd',
-        price: 12
+        img: 'thermo/thermoBase.png',
+        price: 6
 
       }
     ],
     design: [
       {
-        name: 'design',
-        img: 'sdfd.jfp',
-        price: 10
+        name: 'Mira ve',
+        img: 'shirt/diseñoMiraVe.png',
+        icon: 'shirt/MIRAVE.png',
+        price: 5
       },
       {
-        name: 'design',
-        img: 'sdfd.jfp',
-        price: 10
+        name: 'Gato',
+        img: 'shirt/diseñoGato.png',
+        icon: 'shirt/GATO.png',
+        price: 5
+      },
+      {
+        name: 'Ya te Caigo',
+        img: 'shirt/diseñoYaTeCaigo.png',
+        icon: 'shirt/YATECAIGO.png',
+        price: 5
       }
     ]
   },
@@ -170,14 +186,22 @@ const articleTypes = [
     ],
     design: [
       {
-        name: 'design',
-        img: 'sdfd.jfp',
-        price: 10,
+        name: 'Mira ve',
+        img: 'shirt/diseñoMiraVe.png',
+        icon: 'shirt/MIRAVE.png',
+        price: 5
       },
       {
-        name: 'design',
-        img: 'sdfd.jfp',
-        price: 10,
+        name: 'Gato',
+        img: 'shirt/diseñoGato.png',
+        icon: 'shirt/GATO.png',
+        price: 5
+      },
+      {
+        name: 'Ya te Caigo',
+        img: 'shirt/diseñoYaTeCaigo.png',
+        icon: 'shirt/YATECAIGO.png',
+        price: 5
       }
     ]
   },
@@ -298,8 +322,8 @@ export const Creator: React.FC<Creator> = ({ onFinish }) => {
 
 
 
-  const [config, setConfig] = React.useState({
-    type: null as null | string,
+  const [config, setConfig] = React.useState( {
+    type: null as null | string ,
     color: null as null | string,
     material: null as null | string,
     design: null as null | string,

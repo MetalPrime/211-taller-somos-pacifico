@@ -53,6 +53,10 @@ interface Price {
     design: number | null;
 }
 
+export type SelectionElementsProps = Omit<ProductType,'price'|'id'>
+
+type Props = SelectionElements | SelectionElementsProps;
+
 export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,  showOptions, list, config, setConfig, price, setPrice, imgSrc, setImgSrc, product,  setProduct }) => {
 
     const selectedArticleType = list.find(article => {
