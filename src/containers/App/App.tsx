@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { DisplayImg } from '../../components/DisplayImg/DisplayImg';
 import { SelectionElements } from '../../components/SelectionElements/SelectionElements';
-import { HashRouter, Route, useHistory, useParams } from 'react-router-dom';
+import { HashRouter, Route, useHistory, useParams,Redirect } from 'react-router-dom';
 import { Amount } from '../../components/Amount/Amount';
 import { Price } from '../../components/Price/Price';
 import {Buy} from '../../components/Buy/Buy';
@@ -313,6 +313,7 @@ export const App = () => {
       const editIndex = prev.findIndex(product => product.id === newOrEditedItem.id);
       if(editIndex >= 0) {
         const copy = [...prev];
+        copy[editIndex] = newOrEditedItem;
         return copy;
       }
 
@@ -359,6 +360,7 @@ export const App = () => {
   const handleRecommend = () => {
     history.push('/recomendar');
   }
+  if(editError) return <Redirect to="/new-drum" />
 
   return (
     <main >
@@ -367,7 +369,7 @@ export const App = () => {
         <HashRouter basename={process.env.PUBLIC_URL}>
 
 
-          <Route path={["/","/editProduct/:id"]} exact render={
+          <Route path={["/","/editProduct/:id","/newProduct"]} exact render={
             () =>
               <section className='App'>
                 <article className='App__commands'>

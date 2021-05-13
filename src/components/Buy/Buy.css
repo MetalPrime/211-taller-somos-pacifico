@@ -1,0 +1,8 @@
+.Buy{
+    display:flex;
+    flex-direction: column;    
+}
+
+.Buy__Options{
+    width: 100%;
+}
