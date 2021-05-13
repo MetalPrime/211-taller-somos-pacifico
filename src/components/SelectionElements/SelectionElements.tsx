@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import './SelectionElements.css';
 import ArrowLogo from './arrow.svg';
 import { Options } from '../Options/Options';
-import { ProductContext } from '../../utils/ProductContext';
 import { ProductType } from '../../utils/ProductType';
 
 interface SelectionElements {
@@ -60,7 +59,6 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
         return article.name === config.type
     });
 
-    const {products} = useContext(ProductContext);
 
     
       const handleTypeChange = (name: string, price: number, img: string) => {

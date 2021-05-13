@@ -17,7 +17,6 @@ interface DisplayImg {
 
 export const DisplayImg: React.FC<DisplayImg> = ({ isNone, mainItemColor, mainItemDesign, mainItemMaterial, mainItemType }) => {
 
-    console.log(mainItemType);
     if(mainItemColor === null && mainItemDesign === null && mainItemMaterial === null && mainItemType === null){
         isNone = false;
     } else {
