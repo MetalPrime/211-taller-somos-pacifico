@@ -237,18 +237,18 @@ const articleTypes = [
       },
     ],
     materials: [
-      {
-        name: 'cotton',
-        img: 'sdfd.dfd',
-        price: 5
+      // {
+      //   name: 'cotton',
+      //   img: 'sdfd.dfd',
+      //   price: 5
 
-      },
-      {
-        name: 'poliester',
-        img: 'sdfd.dfd',
-        price: 5
+      // },
+      // {
+      //   name: 'poliester',
+      //   img: 'sdfd.dfd',
+      //   price: 5
 
-      }
+      // }
     ],
     design: [
       {
@@ -443,10 +443,10 @@ export const Creator: React.FC<Creator> = ({ onFinish }) => {
         <article className='App__display'>
           <DisplayImg
             isNone={false}
-            mainItemColor={configImg.color}
-            mainItemDesign={configImg.design}
-            mainItemMaterial={configImg.material}
-            mainItemType={configImg.type}
+            mainItemColor={product.setConfigColorImage}
+            mainItemDesign={product.setConfigDesignImage}
+            mainItemMaterial={product.setConfigMaterialImage}
+            mainItemType={product.setConfigTypeImage}
           ></DisplayImg>
         </article>
       </section>

@@ -60,7 +60,7 @@ type Props = SelectionElements | SelectionElementsProps;
 export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,  showOptions, list, config, setConfig, price, setPrice, imgSrc, setImgSrc, product,  setProduct }) => {
 
     const selectedArticleType = list.find(article => {
-        return article.name === config.type
+        return article.name === config.type || article.name === product.setConfigTypeName
     });
 
 
@@ -120,7 +120,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
 
                                 return {
                                     ...previousValue,
-                                    type: articleType.name
+                                    type:  product.setConfigTypeName || articleType.name 
                                 }
                             });
 
@@ -128,7 +128,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                             setPrice(function (previousValue) {
                                 return{
                                     ...previousValue,
-                                    type: articleType.price
+                                    type:product.setConfigTypePrice ||  articleType.price 
                                 }
                             });
 
@@ -136,7 +136,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                             setImgSrc(function (previousValue) {
                                 return{
                                     ...previousValue,
-                                    type: articleType.img
+                                    type:  product.setConfigTypeImage ||  articleType.img 
                                 }
                             });
 
@@ -150,7 +150,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                             name={articleType.name}
                             imgElement={articleType.icon}
                             selected={handleClick}
-                            isSelect={config.type === articleType.name ? true : false}
+                            isSelect={config.type === articleType.name || articleType.name === product.setConfigTypeName? true : false}
                         //style={{ backgroundColor: config.type === articleType.name ? 'lightblue' : 'white' }}
                         //onClick={handleClick}>
                         //{articleType.name} {articleType.price}
@@ -167,21 +167,21 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                             setConfig(function (previousValue) {
                                 return {
                                     ...previousValue,
-                                    color: color.name
+                                    color: color.name || product.setConfigColorName
                                 }
                             });
 
                             setPrice(function (previousValue) {
                                 return{
                                     ...previousValue,
-                                    color: color.price
+                                    color: color.price || product.setConfigColorPrice
                                 }
                             });
 
                             setImgSrc(function (previousValue) {
                                 return{
                                     ...previousValue,
-                                    color: color.img
+                                    color: color.img || product.setConfigColorImage
                                 }
                             });
 
@@ -195,7 +195,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                 name={color.name}
                                 imgElement={color.icon === undefined? color.img : color.icon}
                                 selected={handleClick}
-                                isSelect={config.color === color.name ? true : false}
+                                isSelect={config.color === color.name || color.name === product.setConfigColorName ? true : false}
                             //onClick={handleClick}
                             >
                                 //{color.name}
@@ -211,20 +211,20 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                             setConfig(function (previousValue) {
                                 return {
                                     ...previousValue,
-                                    material: material.name
+                                    material: material.name || product.setConfigMaterialName
                                 }
                             });
 
                             setPrice(function (previousValue) {
                                 return{
                                     ...previousValue,
-                                    material: material.price
+                                    material: material.price || product.setConfigMaterialPrice
                                 }
                             });
                             setImgSrc(function (previousValue) {
                                 return{
                                     ...previousValue,
-                                    material: material.img
+                                    material: material.img || product.setConfigMaterialImage
                                 }
                             });
                             handleMaterialChange(material.name,material.price,material.img);
@@ -237,7 +237,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                 name={material.name}
                                 imgElement={material.img}
                                 selected={handleClick}
-                                isSelect={config.material === material.name ? true : false}
+                                isSelect={config.material === material.name || material.name === product.setConfigMaterialName? true : false}
                             //style={{ backgroundmaterial: config.material === material.name ? 'lightblue' : 'white' }}
                             //onClick={handleClick}
                             >
@@ -253,21 +253,21 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                             setConfig(function (previousValue) {
                                 return {
                                     ...previousValue,
-                                    design: design.name
+                                    design: design.name || product.setConfigDesignName
                                 }
                             });
 
                             setPrice(function (previousValue) {
                                 return{
                                     ...previousValue,
-                                    design: design.price
+                                    design: design.price || product.setConfigDesignPrice
                                 }
                             });
 
                             setImgSrc(function (previousValue) {
                                 return{
                                     ...previousValue,
-                                    design: design.img
+                                    design: design.img || product.setConfigDesignImage
                                 }
                             });
                             handleDesignChange(design.name,design.price,design.img);
@@ -280,7 +280,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                 kindItem={'Diseño'}
                                 imgElement={design.icon === undefined? design.img : design.icon}
                                 selected={handleClick}
-                                isSelect={config.design === design.name ? true : false}
+                                isSelect={config.design === design.name || design.name === product.setConfigDesignName ? true : false}
                             //style={{ backgrounddesign: config.design === design.name ? 'lightblue' : 'white' }}
                             //onClick={handleClick}
                             >
