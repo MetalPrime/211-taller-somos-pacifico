@@ -8,7 +8,7 @@ export type SaveItemProps = Omit<ProductType, 'setConfigTypeName' | 'setConfigCo
 
 export const SaveItem: React.FC<SaveItemProps> = ({setConfigTypeImage,setConfigColorImage,setConfigMaterialImage,setConfigDesignImage,price}) => {
     return (
-        <section className='SaveItem'>
+        <section className='SaveItem__element'>
             <section className='SaveItem__img'>
                 <img src={setConfigTypeImage == null ? undefined : getImageSrcFromUrl(setConfigTypeImage)} alt={setConfigTypeImage == null ? undefined : setConfigTypeImage} className="DisplayImg__img" />
                 <img src={setConfigMaterialImage == null ? undefined : getImageSrcFromUrl(setConfigMaterialImage)} alt={setConfigMaterialImage == null ? undefined : setConfigMaterialImage} className="DisplayImg__img" />
@@ -17,7 +17,7 @@ export const SaveItem: React.FC<SaveItemProps> = ({setConfigTypeImage,setConfigC
             </section>
             <section className='SaveItem__info'>
                 <p>Precio Total ${price}</p>
-                
+                <button>Descargar</button>  
             </section>
         </section>
     );

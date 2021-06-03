@@ -16,30 +16,30 @@ export const Buy: React.FC<Buy> = ({ products }) => {
     return (
         <section className='Buy'>
             <h1>Comprar</h1>
-            <Link to='/newProduct' className="Buy__new" >Crear nuevo elemento</Link> 
+            <Link to='/newProduct' className="Buy__new" >Crear nuevo elemento</Link>
             <section className='Buy__Options'>
                 {
                     products.map(product => {
-                        return <div key={product.id}>
+                        return <div key={product.id} className='SaveItem'>
                             <SaveItem
-                            price={product.price}
-                            setConfigColorImage={product.setConfigColorImage}
-                            setConfigColorPrice={product.setConfigColorPrice}
-                            setConfigDesignImage={product.setConfigDesignImage}
-                            setConfigDesignPrice={product.setConfigDesignPrice}
-                            setConfigMaterialImage={product.setConfigMaterialImage}
-                            setConfigMaterialPrice={product.setConfigMaterialPrice}
-                            setConfigTypeImage={product.setConfigTypeImage}
-                            setConfigTypePrice={product.setConfigTypePrice}
-                            id={product.id}
+                                price={product.price}
+                                setConfigColorImage={product.setConfigColorImage}
+                                setConfigColorPrice={product.setConfigColorPrice}
+                                setConfigDesignImage={product.setConfigDesignImage}
+                                setConfigDesignPrice={product.setConfigDesignPrice}
+                                setConfigMaterialImage={product.setConfigMaterialImage}
+                                setConfigMaterialPrice={product.setConfigMaterialPrice}
+                                setConfigTypeImage={product.setConfigTypeImage}
+                                setConfigTypePrice={product.setConfigTypePrice}
+                                id={product.id}
                             >
-
+                                
                             </SaveItem>
-                            <Link to={`/editProduct/${product.id}`}>Editar producto</Link>
+                            <Link to={`/editProduct/${product.id}`} className="SaveItem__edit">Editar producto</Link>
                         </div>
                     })
                 }
-                        
+
             </section>
         </section>
     );
