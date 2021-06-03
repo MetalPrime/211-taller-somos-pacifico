@@ -1,6 +1,4 @@
 import * as React from 'react';
-import {useContext} from 'react';
-import { useParams } from 'react-router-dom';
 import './SelectionElements.css';
 import ArrowLogo from './arrow.svg';
 import { Options } from '../Options/Options';
@@ -55,9 +53,8 @@ interface Price {
 
 export type SelectionElementsProps = Omit<ProductType,'price'|'id'>
 
-type Props = SelectionElements | SelectionElementsProps;
 
-export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,  showOptions, list, config, setConfig, price, setPrice, imgSrc, setImgSrc, product,  setProduct }) => {
+export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,  showOptions, list, config, setConfig, setPrice, setImgSrc, product,  setProduct }) => {
 
     const selectedArticleType = list.find(article => {
         return article.name === config.type || article.name === product.setConfigTypeName
@@ -198,7 +195,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                                 isSelect={config.color === color.name || color.name === product.setConfigColorName ? true : false}
                             //onClick={handleClick}
                             >
-                                //{color.name}
+                                
                             </Options>
                         }
 
@@ -241,7 +238,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                             //style={{ backgroundmaterial: config.material === material.name ? 'lightblue' : 'white' }}
                             //onClick={handleClick}
                             >
-                                //{material.name}
+                                
                             </Options>
                         }
 
@@ -284,7 +281,7 @@ export const SelectionElements: React.FC<SelectionElements> = ({ name, displays,
                             //style={{ backgrounddesign: config.design === design.name ? 'lightblue' : 'white' }}
                             //onClick={handleClick}
                             >
-                                //{design.name}
+                                
                             </Options>
                         }
 

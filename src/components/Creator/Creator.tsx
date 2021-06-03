@@ -5,7 +5,7 @@ import { Amount } from '../../components/Amount/Amount';
 import { Price } from '../../components/Price/Price';
 import { DisplayImg } from '../../components/DisplayImg/DisplayImg';
 import { SelectionElements } from '../../components/SelectionElements/SelectionElements';
-import { useHistory, useParams, Redirect } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { ProductType } from '../../utils/ProductType';
 import { ProductContext } from '../../utils/ProductContext';
 
@@ -292,7 +292,7 @@ export const Creator: React.FC<Creator> = ({ onFinish }) => {
     console.log(product.id + '' === id);
     return product.id + '' === id});
 
-  const editError = id && !productEdit;
+  //const editError = id && !productEdit;
 
 
 
@@ -336,7 +336,7 @@ export const Creator: React.FC<Creator> = ({ onFinish }) => {
     design: null as null | string,
   });
 
-  const [displays, setDisplays] = React.useState(initialSelectors);
+  const [, setDisplays] = React.useState(initialSelectors);
 
   const [itemPrice, setitemPrice] = React.useState({
     type: null as null | number,
@@ -375,7 +375,7 @@ export const Creator: React.FC<Creator> = ({ onFinish }) => {
       ...prev,
       price: price,
     }));
-  }, [amount, itemPrice]);
+  }, [amount, itemPrice,price]);
 
 
   const handleBuy = () => {
