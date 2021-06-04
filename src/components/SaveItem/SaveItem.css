@@ -10,14 +10,14 @@
 
 .SaveItem__element{
     width: 100%;
-    height: 200%;
+    height: 350%;
     background-color: white;
     margin-bottom: 5%;
 }
 
 .SaveItem__img{
     width: 100%;
-    height:90%;
+    height:170px;
 }
 
 .SaveItem__img img{
@@ -30,7 +30,6 @@
     background-color: rgba(46, 43, 103, 1);
     
     color: white;
-    margin-bottom: 20px;
     font-family: 'Gordita Light';
     display: flex;
     justify-content:space-around;
@@ -60,6 +59,5 @@
     padding-bottom: 10px;
     text-decoration: none;
     width:100%;
-    border-radius: 15px ; 
-    margin-top: 20%;
+    border-radius: 15px ;
 }
