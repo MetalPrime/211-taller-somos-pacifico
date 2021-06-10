@@ -10,41 +10,55 @@ export type SaveItemProps = Omit<ProductType, 'setConfigTypeName' | 'setConfigCo
 export const SaveItem: React.FC<SaveItemProps> = ({setConfigTypeImage,setConfigColorImage,setConfigMaterialImage,setConfigDesignImage,price}) => {
 
     const handleDownload  = () => {
-        onTestSaveFile(document.querySelector('.SaveItem__img'));
+      var canvas :NodeListOf<HTMLCanvasElement>  = document.querySelectorAll('.SaveItem__img');
+      canvas.forEach(element => {
+        const saveImg :  HTMLCanvasElement  | null = element;
+        onTestSaveFile(saveImg);
+      })
+     
+     
     }
 
     const handleReference = () => {
-        var canvas : HTMLCanvasElement | null  = document.querySelector('.SaveItem__img');
-        var context = canvas?.getContext('2d');
-        
-        make_base();
+      
+        var canvas :NodeListOf<HTMLCanvasElement>  = document.querySelectorAll('.SaveItem__img');
+        canvas.forEach(element => {
+          const canva :  HTMLCanvasElement  | null = element;
+          var context = canva?.getContext('2d');
+        canva?.addEventListener('change', make_base,false);
         
         function make_base(){
         let base_image_type = new Image();
           base_image_type.src = getImageSrcFromUrl(setConfigTypeImage);
           base_image_type.onload = function(){
-            context?.drawImage(base_image_type, 0, 0, canvas!.width,canvas!.height);
+            context?.drawImage(base_image_type, 0, 0, canva!.width,canva!.height);
             console.log("working");
           }
           let base_image_material = new Image();
           base_image_material.src = getImageSrcFromUrl(setConfigMaterialImage);
           base_image_material.onload = function(){
-            context?.drawImage(base_image_material, 0, 0, canvas!.width,canvas!.height);
+            context?.drawImage(base_image_material, 0, 0, canva!.width,canva!.height);
             console.log("working");
           }
           let base_image_color = new Image();
           base_image_color.src = getImageSrcFromUrl(setConfigColorImage);
           base_image_color.onload = function(){
-            context?.drawImage(base_image_color, 0, 0, canvas!.width,canvas!.height);
+            context?.drawImage(base_image_color, 0, 0, canva!.width,canva!.height);
             console.log("working");
           }
           let base_image_image = new Image();
           base_image_image.src = getImageSrcFromUrl(setConfigDesignImage);
           base_image_image.onload = function(){
-            context?.drawImage(base_image_image, 0, 0, canvas!.width,canvas!.height);
+            context?.drawImage(base_image_image, 0, 0, canva!.width,canva!.height);
             console.log("working");
           }
         }
+        
+        make_base();
+        });
+      
+        
+        
     }
 
     handleReference();
